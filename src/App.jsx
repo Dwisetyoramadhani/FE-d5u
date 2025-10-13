@@ -3,6 +3,37 @@ import Home from "./pages/Home";
 import TopNavbar from "./components/TopNavbar";
 import MainNavbar from "./components/MainNavbar";
 import ChatButton from "./components/ChatButton";
+import About from "./pages/About";
+import Sambutan from "./pages/Sambutan";
+import VisiMisi from "./pages/VisiMisi";
+import Jurusan from "./pages/Jurusan";
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error("Error caught by ErrorBoundary:", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="text-center mt-20 text-red-600">
+          <h2>Terjadi kesalahan saat memuat halaman.</h2>
+          <p>Silakan refresh halaman atau coba lagi nanti.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const App = () => {
   return (
@@ -11,6 +42,12 @@ const App = () => {
       <MainNavbar />
       <Home />
       <ChatButton />
+      <About />
+      <Sambutan />
+      <VisiMisi />
+      <ErrorBoundary>
+        <Jurusan />
+      </ErrorBoundary>
     </>
   );
 };
