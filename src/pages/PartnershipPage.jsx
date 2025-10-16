@@ -1,36 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const partners = [
-  {
-    id: 1,
-    name: "PT. Educa Sisfomedia Indonesia",
-    logo: "/assets/gamelab.png",
-    status: "Tersedia",
-    address:
-      "Jl. Glirirejo No.10, Gondongan, Kec. Tingkir, Kota Salatiga, Jawa Tengah 50743",
-  },
-  {
-    id: 2,
-    name: "PT. Humma Teknologi Indonesia",
-    logo: "/",
-    status: "Tersedia",
-    address:
-      "Jl. Ngadiluwih, Kedungpedaringan, Kec. Kepanjen, Kabupaten Malang, Jawa Timur 65163, Indonesia",
-  },
-  {
-    id: 3,
-    name: "PT. Educa Sisfomedia Indonesia",
-    logo: "/",
-    status: "Tersedia",
-    address:
-      "Jl. Ngadiluwih, Kedungpedaringan, Kec. Kepanjen, Kabupaten Malang, Jawa Timur 65163, Indonesia",
-  },
-];
+import { fetchCompanies } from "../services/company";
 
 const PartnershipPage = () => {
   const navigate = useNavigate();
+  const [partners, setPartners] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    setLoading(true);
+    fetchCompanies()
+      .then((data) => {
+        if (!mounted) return;
+        setPartners(data.data ?? data);
+      })
+      .catch((err) => {
+        if (!mounted) return;
+        setError(err.message || "Failed to load partners");
+      })
+      .finally(() => mounted && setLoading(false));
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#eaf4f6] px-8 py-6 relative">
@@ -58,6 +54,9 @@ const PartnershipPage = () => {
         />
       </div>
 
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
+
       {/* Grid Kartu */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {partners.map((partner) => (
@@ -68,7 +67,7 @@ const PartnershipPage = () => {
             {/* Logo */}
             <div className="w-full h-24 flex items-center justify-center border-b border-gray-200 mb-3">
               <img
-                src={partner.logo}
+                src={partner.logo ?? partner.image}
                 alt={partner.name}
                 className="h-12 object-contain"
               />
@@ -76,7 +75,7 @@ const PartnershipPage = () => {
 
             {/* Status */}
             <span className="inline-block bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full w-fit mb-2">
-              {partner.status}
+              {partner.status ?? 'Tersedia'}
             </span>
 
             {/* Nama */}
