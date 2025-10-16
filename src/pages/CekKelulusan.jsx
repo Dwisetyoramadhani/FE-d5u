@@ -22,7 +22,8 @@ const CekKelulusan = () => {
     setResult(null);
     try {
       const data = await checkGraduation({ nisn });
-      setResult(data.data ?? data);
+      // service returns either payload.data or payload (normalized)
+      setResult(data ?? null);
     } catch (err) {
       setError(err.message || "Gagal memeriksa kelulusan");
     } finally {
@@ -68,7 +69,9 @@ const CekKelulusan = () => {
       {result && (
         <div className="mt-6 bg-white p-6 rounded-md shadow-md w-full max-w-xl">
           <h2 className="font-semibold text-lg mb-2">Hasil Pencarian</h2>
-          <pre className="text-sm text-gray-700">{JSON.stringify(result, null, 2)}</pre>
+          <p className="text-sm text-gray-700"><strong>NISN:</strong> {result.nisn}</p>
+          <p className="text-sm text-gray-700"><strong>Nama:</strong> {result.name}</p>
+          <p className="text-sm text-gray-700"><strong>Status Kelulusan:</strong> {result.is_pass ? <span className="text-green-600">LULUS</span> : <span className="text-red-600">TIDAK LULUS</span>}</p>
         </div>
       )}
     </div>

@@ -89,7 +89,7 @@ const AlumniPage = () => {
 
             <div className="flex flex-col items-center mt-6">
               <img
-                src={alumni.avatar || alumni.img || alumni.image ? storageUrl(alumni.avatar ?? alumni.img ?? alumni.image) : placeholderAvatar}
+                src={alumni.photo || alumni.avatar || alumni.img || alumni.image ? storageUrl(alumni.photo ?? alumni.avatar ?? alumni.img ?? alumni.image) : placeholderAvatar}
                 alt={alumni.name}
                 className="w-20 h-20 rounded-full border"
               />

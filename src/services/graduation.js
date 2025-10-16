@@ -3,7 +3,8 @@ import api from "../utils/Api";
 export async function checkGraduation(params = {}) {
   const res = await api.get('/graduation/check', { params });
   const payload = res.data;
-  return payload?.data ?? null;
+  // backend may return direct object (no wrapping), or { data: { ... } }
+  return payload?.data ?? payload ?? null;
 }
 
 export async function uploadGraduation(formData) {

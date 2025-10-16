@@ -6,6 +6,7 @@ import VisimisiPage from "../pages/VisimisiPage";
 import JurusanPage from "../pages/JurusanPage";
 import AlumniPage from "../pages/AlumniPage";
 import BeritaPage from "../pages/BeritaPages";
+import NewsDetail from "../pages/NewsDetail";
 import CekKelulusan from "../pages/CekKelulusan";
 import PartnershipPage from "../pages/PartnershipPage";
 import Feedback from "../components/Feedback";
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
 	},
 	{ path: "/alumni", element: <AlumniPage /> },
 	{ path: "/news", element: <BeritaPage /> },
+	{ path: "/news/:slug", element: <NewsDetail /> },
 	{ path: "/cekkelulusan", element: <CekKelulusan /> },
 	{ path: "/partnership", element: <PartnershipPage /> },
 	{ path: "/feedback", element: <Feedback /> },
