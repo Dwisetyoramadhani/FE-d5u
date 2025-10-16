@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchNews } from "../services/news";
+import { storageUrl } from "../utils/storage";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -12,7 +13,6 @@ const News = () => {
     fetchNews()
       .then((data) => {
         if (!mounted) return;
-        // assume API returns array in data.data or data
         setNewsData(data.data ?? data);
       })
       .catch((err) => {
@@ -53,15 +53,17 @@ const News = () => {
             key={index}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
           >
-            {item.image && (
+            {item.thumbnail || item.image ? (
               <img
-                src={item.image}
+                src={storageUrl(item.thumbnail ?? item.image)}
                 alt={item.title}
                 className="w-full h-56 object-cover"
               />
-            )}
+            ) : null}
             <div className="p-5">
-              <p className="text-gray-600 text-sm mb-1">{item.date || item.created_at}</p>
+            <p className="text-gray-600 text-sm mb-1">
+              {new Date(item.created_at).toLocaleDateString()}
+            </p>
               <h3 className="text-lg font-bold mb-2">{item.title || item.heading}</h3>
               {item.desc && (
                 <p className="text-gray-700 text-sm mb-3">{item.desc}</p>

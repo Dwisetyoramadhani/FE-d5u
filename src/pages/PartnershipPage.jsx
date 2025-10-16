@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { fetchCompanies } from "../services/company";
+import { storageUrl } from "../utils/storage";
 
 const PartnershipPage = () => {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const PartnershipPage = () => {
     fetchCompanies()
       .then((data) => {
         if (!mounted) return;
-        setPartners(data.data ?? data);
+        // fetchCompanies returns an array of items (KISS)
+        setPartners(data);
       })
       .catch((err) => {
         if (!mounted) return;
@@ -67,7 +69,7 @@ const PartnershipPage = () => {
             {/* Logo */}
             <div className="w-full h-24 flex items-center justify-center border-b border-gray-200 mb-3">
               <img
-                src={partner.logo ?? partner.image}
+                src={storageUrl(partner.logo ?? partner.image)}
                 alt={partner.name}
                 className="h-12 object-contain"
               />
