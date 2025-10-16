@@ -2,17 +2,16 @@ import React from "react";
 
 const TopNavbar = () => {
   return (
-    <div className="fixed top-0 left-0 w-full bg-sky-100 text-slate-800 text-xs z-50 border-b border-sky-300">
-      <div className="max-w-7xl mx-auto px-4 py-1 flex justify-between items-center">
-        {/* Kiri - Email */}
+    <div className="w-full bg-sky-100 text-slate-800 text-xs border-b border-sky-300 m-0">
+      <div className="max-w-7xl mx-auto px-4 py-0.5 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <div className="flex flex-col">
-            <span className="font-semibold text-sky-800">EMAIL</span>{" "}
+            <span className="font-semibold text-sky-800">EMAIL</span>
             <span className="text-gray-700">loremipsum@gmail.com</span>
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <div className="flex flex-col">
+          <div className="flex flex-col text-right">
             <span className="font-semibold text-sky-800">BOJONEGORO</span>
             <a
               href="#"

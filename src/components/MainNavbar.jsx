@@ -1,15 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import logo from "../assets/logo.png";
 
 const MainNavbar = () => {
   const [isProgramOpen, setIsProgramOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-[40px] z-60 flex justify-center">
-      <div className="bg-indigo-950 text-white rounded-full px-10 py-3 flex items-center justify-between w-4/5 shadow-lg relative">
+    <nav
+      className={`sticky top-5 z-40 flex justify-center transition-all duration-500 ${
+        scrolled ? "py-2 bg-transparent" : "py-0 bg-transparent"
+      }`}
+    >
+      <div
+        className={`${
+          scrolled
+            ? "bg-indigo-950 text-white rounded-full w-4/5 shadow-lg"
+            : "bg-indigo-950 text-white w-full rounded-none"
+        } transition-all duration-500 px-10 py-3 flex items-center justify-between relative`}
+      >
         <div className="flex items-center space-x-3">
-          <img src={logo} className="w-8 h-12" />
+          <img src={logo} className="w-8 h-12" alt="logo" />
           <span className="font-semibold text-lg">SMKN 4 Bojonegoro</span>
         </div>
 

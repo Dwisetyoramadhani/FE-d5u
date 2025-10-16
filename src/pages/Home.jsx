@@ -4,7 +4,7 @@ import bgImage from "../assets/bg-smk.png";
 const Home = () => {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-cover bg-center"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-cover bg-center pt-0 mt-0"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="absolute inset-0 bg-black/40" />
