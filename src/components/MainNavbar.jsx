@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const MainNavbar = () => {
   const [isProgramOpen, setIsProgramOpen] = useState(false);
@@ -8,11 +9,7 @@ const MainNavbar = () => {
     <nav className="sticky top-[40px] z-60 flex justify-center">
       <div className="bg-indigo-950 text-white rounded-full px-10 py-3 flex items-center justify-between w-4/5 shadow-lg relative">
         <div className="flex items-center space-x-3">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0f/SMK_Logo.png"
-            alt="Logo"
-            className="w-8 h-8"
-          />
+          <img src={logo} className="w-8 h-12" />
           <span className="font-semibold text-lg">SMKN 4 Bojonegoro</span>
         </div>
 
