@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import TopNavbar from "./components/TopNavbar";
 import MainNavbar from "./components/MainNavbar";
@@ -11,6 +13,14 @@ import Alumni from "./components/Alumni";
 import News from "./components/News";
 import Feedback from "./components/Feedback";
 import Footer from "./components/Footer";
+import AboutPage from "./pages/AboutPage";
+import VisimisiPage from "./pages/VisimisiPage";
+import JurusanPage from "./pages/JurusanPage";
+import AlumniPage from "./pages/AlumniPage";
+import PrestasiPage from "./pages/BeritaPages";
+import CekKelulusan from "./pages/CekKelulusan";
+import PartnershipPage from "./pages/PartnershipPage";
+import BeritaPage from "./pages/BeritaPages";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -41,22 +51,50 @@ class ErrorBoundary extends React.Component {
 
 const App = () => {
   return (
-    <>
+    <Router>
       <TopNavbar />
       <MainNavbar />
-      <Home />
       <ChatButton />
-      <About />
-      <Sambutan />
-      <VisiMisi />
-      <ErrorBoundary>
-        <Jurusan />
-      </ErrorBoundary>
-      <Alumni />
-      <News />
-      <Feedback />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <About />
+              <Sambutan />
+              <VisiMisi />
+              <ErrorBoundary>
+                <Jurusan />
+              </ErrorBoundary>
+              <Alumni />
+              <News />
+              <Feedback />
+            </>
+          }
+        />
+
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/visi-misi" element={<VisimisiPage />} />
+        <Route
+          path="/jurusan"
+          element={
+            <ErrorBoundary>
+              <JurusanPage />
+            </ErrorBoundary>
+          }
+        />
+        <Route path="/alumni" element={<AlumniPage />} />
+        <Route path="/news" element={<BeritaPage />} />
+        <Route path="/cekkelulusan" element={<CekKelulusan />} />
+        <Route path="/partnership" element={<PartnershipPage />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/prestasi" element={<PrestasiPage />} />
+      </Routes>
+
       <Footer />
-    </>
+    </Router>
   );
 };
 
