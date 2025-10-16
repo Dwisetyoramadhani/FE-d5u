@@ -1,50 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search, Mail, Globe, Hash, ArrowRight } from "lucide-react";
+import { fetchAlumni } from "../services/alumni";
 
 const AlumniPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [alumniData, setAlumniData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const alumniData = [
-    {
-      id: "2E74D",
-      name: "M. Khoyron Ahlaqul Firdaus",
-      role: "Fullstack Dev",
-      status: "Tidak Bersedia",
-      workType: "Fulltime",
-      email: "khoyron@gmail.com",
-      img: "/assets/alumni1.png",
-    },
-    {
-      id: "1GD01",
-      name: "Rafie Danial Faturrahman",
-      role: "Game Dev",
-      status: "Bersedia",
-      workType: "Part-time",
-      email: "rafie@gmail.com",
-      img: "/assets/alumni2.png",
-    },
-    {
-      id: "2E74D",
-      name: "M. Khoyron Ahlaqul Firdaus",
-      role: "Fullstack Dev",
-      status: "Tidak Bersedia",
-      workType: "Fulltime",
-      email: "khoyron@gmail.com",
-      img: "/assets/alumni1.png",
-    },
-    {
-      id: "1GD01",
-      name: "Rafie Danial Faturrahman",
-      role: "Game Dev",
-      status: "Bersedia",
-      workType: "Part-time",
-      email: "rafie@gmail.com",
-      img: "/assets/alumni2.png",
-    },
-  ];
+  useEffect(() => {
+    let mounted = true;
+    setLoading(true);
+    fetchAlumni()
+      .then((data) => {
+        if (!mounted) return;
+        setAlumniData(data.data ?? data);
+      })
+      .catch((err) => {
+        if (!mounted) return;
+        setError(err.message || "Failed to load alumni");
+      })
+      .finally(() => mounted && setLoading(false));
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const filteredData = alumniData.filter((alumni) =>
-    alumni.name.toLowerCase().includes(searchTerm.toLowerCase())
+    (alumni.name ?? "").toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -54,7 +38,7 @@ const AlumniPage = () => {
           onClick={() => window.history.back()}
           className="text-gray-600 hover:text-black transition"
         >
-          ←
+          9
         </button>
         <h1 className="text-3xl font-bold">Data Alumni</h1>
       </div>
@@ -81,15 +65,18 @@ const AlumniPage = () => {
         />
       </div>
 
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredData.map((alumni, index) => (
           <div
-            key={index}
+            key={alumni.id ?? index}
             className="bg-white rounded-2xl shadow p-5 relative hover:shadow-lg transition"
           >
             <div
               className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold ${
-                alumni.status === "Bersedia"
+                (alumni.status === "Bersedia")
                   ? "bg-green-700 text-white"
                   : "bg-red-400 text-white"
               }`}
@@ -99,7 +86,7 @@ const AlumniPage = () => {
 
             <div className="flex flex-col items-center mt-6">
               <img
-                src={alumni.img}
+                src={storageUrl(alumni.img ?? alumni.avatar)}
                 alt={alumni.name}
                 className="w-20 h-20 rounded-full border"
               />

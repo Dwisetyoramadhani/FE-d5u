@@ -1,32 +1,31 @@
-import React from "react";
-import lks from "../assets/lks-livestock.png";
-import jobfair from "../assets/jobfair-2024.png";
-import lulusan from "../assets/foto-lulusan.png";
+import React, { useEffect, useState } from "react";
+import { fetchNews } from "../services/news";
+import { storageUrl } from "../utils/storage";
 
 const News = () => {
-  const newsData = [
-    {
-      date: "Agustus 16, 2024",
-      title: "SMKN 4 Bojonegoro Meraih Juara 1 LKS Live Stok Tingkat Provinsi",
-      desc: "",
-      category: "Prestasi",
-      image: lks,
-    },
-    {
-      date: "Agustus 28, 2024",
-      title: "JobFair & Edufair Hadir di SMKN 4 Bojonegoro!",
-      desc: "SMKN 4 Bojonegoro mengadakan Job Fair & Edu Fair untuk membantu anak........",
-      category: "Informasi",
-      image: jobfair,
-    },
-    {
-      date: "Mei 15, 2025",
-      title: "SMKN 4 Bojonegoro Luluskan 451 Siswa Berprestasi",
-      desc: "Pada Mei tanggal 15 tahun 2025, SMKN 4 Bojonegoro resmi meluluskan ..........",
-      category: "Informasi",
-      image: lulusan,
-    },
-  ];
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    setLoading(true);
+    fetchNews()
+      .then((data) => {
+        if (!mounted) return;
+        setNewsData(data.data ?? data);
+      })
+      .catch((err) => {
+        if (!mounted) return;
+        setError(err.message || "Failed to load news");
+      })
+      .finally(() => mounted && setLoading(false));
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   return (
     <section className="bg-[#0B0D52] py-16 px-8 text-white">
       <div className="text-center mb-10">
@@ -45,20 +44,27 @@ const News = () => {
         />
       </div>
 
+      {loading && <p className="text-center">Loading...</p>}
+      {error && <p className="text-center text-red-400">{error}</p>}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
         {newsData.map((item, index) => (
           <div
             key={index}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
           >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-56 object-cover"
-            />
+            {item.thumbnail || item.image ? (
+              <img
+                src={storageUrl(item.thumbnail ?? item.image)}
+                alt={item.title}
+                className="w-full h-56 object-cover"
+              />
+            ) : null}
             <div className="p-5">
-              <p className="text-gray-600 text-sm mb-1">{item.date}</p>
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+            <p className="text-gray-600 text-sm mb-1">
+              {new Date(item.created_at).toLocaleDateString()}
+            </p>
+              <h3 className="text-lg font-bold mb-2">{item.title || item.heading}</h3>
               {item.desc && (
                 <p className="text-gray-700 text-sm mb-3">{item.desc}</p>
               )}
