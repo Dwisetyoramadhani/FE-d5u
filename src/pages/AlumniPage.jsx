@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Search, Mail, Globe, Hash, ArrowRight } from "lucide-react";
 import { fetchAlumni } from "../services/alumni";
+import { storageUrl } from "../utils/storage";
+import placeholderAvatar from "../assets/foto-lulusan.png";
 
 const AlumniPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +16,8 @@ const AlumniPage = () => {
     fetchAlumni()
       .then((data) => {
         if (!mounted) return;
-        setAlumniData(data.data ?? data);
+        // fetchAlumni returns array of alumni items
+        setAlumniData(Array.isArray(data) ? data : (data.data ?? data));
       })
       .catch((err) => {
         if (!mounted) return;
@@ -38,7 +41,7 @@ const AlumniPage = () => {
           onClick={() => window.history.back()}
           className="text-gray-600 hover:text-black transition"
         >
-          9
+          Kembali
         </button>
         <h1 className="text-3xl font-bold">Data Alumni</h1>
       </div>
@@ -76,22 +79,22 @@ const AlumniPage = () => {
           >
             <div
               className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold ${
-                (alumni.status === "Bersedia")
+                ( (alumni.status === "Bersedia") || (alumni.status === 'ready_to_work') || (alumni.status_formatted && alumni.status_formatted.toLowerCase().includes('ready')) )
                   ? "bg-green-700 text-white"
                   : "bg-red-400 text-white"
               }`}
             >
-              {alumni.status}
+              {alumni.status_formatted ?? alumni.status}
             </div>
 
             <div className="flex flex-col items-center mt-6">
               <img
-                src={storageUrl(alumni.img ?? alumni.avatar)}
+                src={alumni.avatar || alumni.img || alumni.image ? storageUrl(alumni.avatar ?? alumni.img ?? alumni.image) : placeholderAvatar}
                 alt={alumni.name}
                 className="w-20 h-20 rounded-full border"
               />
               <h3 className="mt-3 font-bold text-center">{alumni.name}</h3>
-              <p className="text-sm text-gray-500">{alumni.role}</p>
+              <p className="text-sm text-gray-500">{alumni.skills ?? alumni.position ?? '-'}</p>
             </div>
 
             <div className="bg-[#F2FBFF] border border-gray-200 rounded-lg p-3 mt-4 text-sm">
@@ -101,7 +104,7 @@ const AlumniPage = () => {
               </div>
               <div className="flex items-center space-x-2 mt-1">
                 <Globe size={14} />
-                <span>{alumni.workType}</span>
+                <span>{alumni.work_time_formatted ?? alumni.work_time ?? '-'}</span>
               </div>
               <div className="flex items-center space-x-2 mt-1">
                 <Mail size={14} />
