@@ -3,10 +3,14 @@ import Home from "./pages/Home";
 import TopNavbar from "./components/TopNavbar";
 import MainNavbar from "./components/MainNavbar";
 import ChatButton from "./components/ChatButton";
-import About from "./pages/About";
-import Sambutan from "./pages/Sambutan";
-import VisiMisi from "./pages/VisiMisi";
-import Jurusan from "./pages/Jurusan";
+import About from "./components/About";
+import Sambutan from "./components/Sambutan";
+import VisiMisi from "./components/VisiMisi";
+import Jurusan from "./components/Jurusan";
+import Alumni from "./components/Alumni";
+import News from "./components/News";
+import Feedback from "./components/Feedback";
+import Footer from "./components/Footer";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -48,6 +52,10 @@ const App = () => {
       <ErrorBoundary>
         <Jurusan />
       </ErrorBoundary>
+      <Alumni />
+      <News />
+      <Feedback />
+      <Footer />
     </>
   );
 };
