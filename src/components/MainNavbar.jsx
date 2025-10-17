@@ -103,7 +103,7 @@ const MainNavbar = () => {
           </li>
         </ul>
 
-        <button className="bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition">
+        <button className="w-auto bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition">
           Contact Us
         </button>
       </div>

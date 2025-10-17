@@ -16,7 +16,6 @@ const AlumniPage = () => {
     fetchAlumni()
       .then((data) => {
         if (!mounted) return;
-        // fetchAlumni returns array of alumni items
         setAlumniData(Array.isArray(data) ? data : (data.data ?? data));
       })
       .catch((err) => {
@@ -36,10 +35,10 @@ const AlumniPage = () => {
 
   return (
     <div className="min-h-screen bg-[#F0FAFF] px-10 py-8">
-      <div className="flex items-center space-x-4 mb-6">
+      <div className="flex  items-center space-x-4 mb-6 ">
         <button
           onClick={() => window.history.back()}
-          className="text-gray-600 hover:text-black transition"
+          className="text-gray-600 hover:text-black transition "
         >
           Kembali
         </button>
