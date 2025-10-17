@@ -7,7 +7,6 @@ const Feedback = () => {
   const [hover, setHover] = useState(null);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
@@ -31,19 +30,18 @@ const Feedback = () => {
   };
 
   return (
-    <section className="bg-gray-200 py-16 px-6 md:px-16 text-center">
+    <section className="bg-gray-200 py-16 px-4 sm:px-8 md:px-16 text-center">
       <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
         UMPAN BALIK
       </h2>
       <p className="text-black max-w-2xl mx-auto mb-10 leading-relaxed">
-        Kami sangat menghargai pendapat Anda. Silakan berikan masukan, saran,
-        atau kritik yang membangun untuk membantu kami meningkatkan kualitas
-        layanan SMKN 4 Bojonegoro.
+        Kami menghargai pendapat Anda. Berikan masukan atau saran untuk
+        meningkatkan layanan SMKN 4 Bojonegoro.
       </p>
 
       <form
         onSubmit={handleSubmit}
-        className="max-w-4xl mx-auto bg-gray-200 text-left space-y-6"
+        className="max-w-4xl mx-auto bg-gray-200 text-left space-y-6 px-2 sm:px-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div>
@@ -52,7 +50,7 @@ const Feedback = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Nama....."
+              placeholder="Nama..."
               className="w-full p-3 rounded-md border border-b-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
@@ -97,11 +95,13 @@ const Feedback = () => {
             className="bg-[#08084C] text-white font-semibold w-full md:w-auto px-10 py-3 rounded-lg hover:bg-[#0b0d80] transition"
             disabled={loading}
           >
-            {loading ? 'Mengirim...' : 'Kirim feedback'}
+            {loading ? "Mengirim..." : "Kirim feedback"}
           </button>
         </div>
 
-        {success && <p className="text-center text-green-600 mt-3">{success}</p>}
+        {success && (
+          <p className="text-center text-green-600 mt-3">{success}</p>
+        )}
         {error && <p className="text-center text-red-600 mt-3">{error}</p>}
 
         <p className="text-center text-sm text-gray-700 mt-4">

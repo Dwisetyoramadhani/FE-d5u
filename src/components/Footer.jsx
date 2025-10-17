@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-[#0C0C4C] text-white py-10">
-      <div className="container mx-auto px-6 md:px-16 grid md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-6 md:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
         <div>
-          <div className="flex items-center space-x-3 mb-4">
+          <div className="flex justify-center md:justify-start items-center space-x-3 mb-4">
             <img
               src={logo}
               alt="Logo SMKN 4 Bojonegoro"
-              className="w-12 h-18"
+              className="w-12 h-12"
             />
             <h2 className="text-xl font-bold">SMKN 4 Bojonegoro</h2>
           </div>
@@ -21,44 +21,44 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex justify-between md:justify-around">
+        <div className="flex flex-col sm:flex-row justify-center md:justify-around gap-6">
           <div>
             <h3 className="font-semibold mb-2">Pages</h3>
             <ul className="space-y-1 text-sm text-gray-300">
+              {/* {["Home", "About", "Sambutan", "Visi", "Misi"].map((item, i) => ( */}
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link to="/" className="hover:text-white">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
-                  About
+                <Link to="/about" className="hover:text-white">
+                  Tentang
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
-                  Sambutan
+                <Link to="/visi-misi" className="hover:text-white">
+                  Visi Misi
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
-                  Visi
+                <Link to="/jurusan" className="hover:text-white">
+                  Jurusan
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
-                  Misi
+                <Link to="/news" className="hover:text-white">
+                  Berita
                 </Link>
               </li>
+              {/* ))} */}
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-2">Contact</h3>
-            <p className="text-sm text-gray-300">
-              Jalan Raya Surabaya,
-              <br />
-              Sukowati, Kab Bojonegoro 62181
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Jalan Raya Surabaya, Sukowati, Kab Bojonegoro 62181
             </p>
             <p className="text-sm text-gray-300 mt-2">
               smkn4bojonegoro@yahoo.co.id
@@ -70,13 +70,13 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-2">Newsletter</h3>
           <p className="text-sm text-gray-300 mb-3">
-            Subscribe our newsletter to get our latest update
+            Subscribe untuk update terbaru kami
           </p>
-          <div className="flex">
+          <div className="flex justify-center md:justify-start">
             <input
               type="email"
-              placeholder="Enter your email"
-              className="w-3xs bg-white px-3 py-2 rounded-l-md text-black focus:outline-none"
+              placeholder="Email kamu..."
+              className="w-3/4 sm:w-auto flex-grow bg-white px-3 py-2 rounded-l-md text-black focus:outline-none"
             />
             <button className="bg-yellow-400 px-4 py-2 rounded-r-md text-black font-semibold">
               ➜

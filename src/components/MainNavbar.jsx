@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const MainNavbar = () => {
   const [isProgramOpen, setIsProgramOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -25,9 +23,9 @@ const MainNavbar = () => {
       <div
         className={`${
           scrolled
-            ? "bg-indigo-950 text-white rounded-full w-4/5 shadow-lg"
+            ? "bg-indigo-950 text-white rounded-full w-11/12 md:w-4/5 shadow-lg"
             : "bg-indigo-950 text-white w-full rounded-none"
-        } transition-all duration-500 px-10 py-3 flex items-center justify-between relative`}
+        } transition-all duration-500 px-6 md:px-10 py-3 flex items-center justify-between relative`}
       >
         <div className="flex items-center space-x-3">
           <img src={logo} className="w-8 h-12" alt="logo" />
@@ -36,7 +34,20 @@ const MainNavbar = () => {
           </Link>
         </div>
 
-        <ul className="hidden md:flex space-x-6 text-sm items-center">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-white focus:outline-none"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        <ul
+          className={`${
+            isMenuOpen
+              ? "flex flex-col absolute top-full left-0 bg-indigo-950 w-full p-6 space-y-4 rounded-b-2xl md:hidden"
+              : "hidden md:flex space-x-6"
+          } text-sm items-center md:static`}
+        >
           <li>
             <Link to="/" className="hover:text-yellow-400">
               Beranda
@@ -73,7 +84,7 @@ const MainNavbar = () => {
             </button>
 
             {isProgramOpen && (
-              <ul className="absolute bg-white text-indigo-950 rounded-md shadow-md mt-2 py-2 w-40">
+              <ul className="absolute bg-white text-indigo-950 rounded-md shadow-md mt-2 py-2 w-40 z-50">
                 <li>
                   <Link
                     to="/cekkelulusan"
@@ -104,11 +115,39 @@ const MainNavbar = () => {
               Berita
             </Link>
           </li>
+
+          <li className="block md:hidden">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(
+                  "mailto:smkn4bojonegoro@yahoo.co.id",
+                  "_self",
+                  "noopener,noreferrer"
+                );
+              }}
+              type="button"
+              className="inline-block bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition focus:outline-none focus:ring-2 focus:ring-yellow-200"
+            >
+              Contact Us
+            </button>
+          </li>
         </ul>
 
-        <Link className="w-auto bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            window.open(
+              "mailto:smkn4bojonegoro@yahoo.co.id",
+              "_self",
+              "noopener,noreferrer"
+            );
+          }}
+          type="button"
+          className="hidden md:inline-block bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition focus:outline-none focus:ring-2 focus:ring-yellow-200"
+        >
           Contact Us
-        </Link>
+        </button>
       </div>
     </nav>
   );

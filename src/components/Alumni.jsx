@@ -10,46 +10,36 @@ const Alumni = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let mounted = true;
     setLoading(true);
     fetchLatestForLanding()
-      .then((items) => {
-        if (!mounted) return;
-        setAlumni(items);
-      })
-      .catch((err) => {
-        if (!mounted) return;
-        setError(err.message || "Failed to load alumni");
-      })
-      .finally(() => mounted && setLoading(false));
-
-    return () => {
-      mounted = false;
-    };
+      .then((items) => setAlumni(items))
+      .catch((err) => setError(err.message || "Failed to load alumni"))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <section className="bg-blue-50 border-2 border-blue-500 p-10 rounded-lg">
-      <div className="flex justify-between items-center mb-8">
+    <section className="bg-blue-50 border-2 border-blue-500 p-6 sm:p-10 rounded-lg">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 text-center sm:text-left">
         <div>
-          <h2 className="text-4xl font-bold text-black mb-2">Profil Alumni</h2>
-          <p className="text-gray-700 max-w-md">
-            Temukan alumni SMKN 4 Bojonegoro yang kompeten dan siap bekerja
-            untuk perusahaanmu
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-2">
+            Profil Alumni
+          </h2>
+          <p className="text-gray-700 max-w-md mx-auto sm:mx-0">
+            Temukan alumni SMKN 4 Bojonegoro yang kompeten dan siap bekerja.
           </p>
         </div>
         <Link
           to="/alumni"
           className="bg-indigo-900 text-white px-6 py-3 rounded-lg hover:bg-indigo-800 transition"
         >
-          lihat semua
+          Lihat Semua
         </Link>
       </div>
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {loading && <p className="text-center">Loading...</p>}
+      {error && <p className="text-center text-red-500">{error}</p>}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {alumni.map((item, index) => (
           <div
             key={item.id ?? index}

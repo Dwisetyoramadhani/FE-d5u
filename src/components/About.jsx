@@ -4,22 +4,18 @@ import bg from "../assets/bg-smk.png";
 const About = () => {
   return (
     <section className="bg-[#f8fcff] py-16 px-6 md:px-20">
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="grid md:grid-cols-2 gap-10 items-center text-center md:text-left">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0b2254] mb-4 border-l-4 border-[#0b2254] pl-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0b2254] mb-4 border-l-4 border-[#0b2254] pl-3 inline-block">
             TENTANG SMKN 4
           </h2>
           <p className="text-gray-700 leading-relaxed mb-6">
-            SMKN 4 Bojonegoro adalah Sekolah Menengah Kejuruan yang berkomitmen
-            mencetak lulusan berkualitas, terampil, dan siap bersaing di dunia
-            kerja maupun melanjutkan pendidikan ke jenjang lebih tinggi. Berdiri
-            dengan semangat Link and Match antara dunia pendidikan dengan dunia
-            usaha dan dunia industri (DUDI), SMKN 4 Bojonegoro terus berinovasi
-            dalam memberikan pendidikan berbasis vokasi yang relevan dengan
-            kebutuhan zaman.
+            SMKN 4 Bojonegoro berkomitmen mencetak lulusan terampil, siap kerja
+            dan berdaya saing global. Dengan semangat Link and Match antara
+            pendidikan dan dunia industri, sekolah ini terus berinovasi.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 mt-6">
+          <div className="flex flex-col sm:flex-row gap-6 mt-6 justify-center md:justify-start">
             <div>
               <h3 className="text-lg font-bold text-[#0b2254]">6 Jurusan</h3>
               <p className="text-gray-600 text-sm">
@@ -39,7 +35,7 @@ const About = () => {
                 Dunia Industri
               </h3>
               <p className="text-gray-600 text-sm">
-                Link and Match dengan industri dan usaha.
+                Link and Match dengan industri.
               </p>
             </div>
           </div>

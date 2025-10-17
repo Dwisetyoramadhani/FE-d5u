@@ -3,29 +3,26 @@ import kepsek from "../assets/kepsek.png";
 
 const Sambutan = () => {
   return (
-    <section className="bg-[#0b0b4f] text-white py-5 px-6 md:px-20">
-      <div className="flex flex-col md:flex-row items-center">
+    <section className="bg-[#0b0b4f] text-white py-10 px-6 md:px-20">
+      <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center md:text-left">
         <div className="flex-shrink-0">
           <img
             src={kepsek}
             alt="Kepala Sekolah SMKN 4 Bojonegoro"
-            className="w-64 md:w-72s"
+            className="w-56 sm:w-64 md:w-72 mx-auto"
           />
         </div>
         <div>
           <p className="leading-relaxed text-gray-100 mb-6">
             Assalamu’alaikum warahmatullahi wabarakatuh,
             <br />
-            Selamat datang di website resmi SMKN 4 Bojonegoro. Melalui media ini
-            kami ingin menghadirkan informasi seputar kegiatan, prestasi, dan
-            program sekolah agar dapat diakses oleh siswa, orang tua, maupun
-            masyarakat luas.
+            Selamat datang di website resmi SMKN 4 Bojonegoro. Kami hadirkan
+            informasi kegiatan dan prestasi sekolah untuk siswa, orang tua, dan
+            masyarakat.
             <br />
             <br />
-            Sebagai sekolah vokasi, kami berkomitmen mencetak lulusan yang
-            terampil, berkarakter, dan siap bersaing di dunia kerja maupun
-            pendidikan tinggi. Semoga website ini menjadi jendela informasi
-            sekaligus sarana komunikasi yang bermanfaat bagi kita semua.
+            Sebagai sekolah vokasi, kami berkomitmen mencetak lulusan terampil,
+            berkarakter, dan siap bersaing di dunia kerja.
             <br />
             <br />
             Wassalamu’alaikum warahmatullahi wabarakatuh.
