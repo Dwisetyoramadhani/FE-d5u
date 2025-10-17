@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,35 +21,34 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Kolom 2 */}
         <div className="flex justify-between md:justify-around">
           <div>
             <h3 className="font-semibold mb-2">Pages</h3>
             <ul className="space-y-1 text-sm text-gray-300">
               <li>
-                <a href="#" className="hover:text-white">
+                <Link href="#" className="hover:text-white">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link href="#" className="hover:text-white">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link href="#" className="hover:text-white">
                   Sambutan
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link href="#" className="hover:text-white">
                   Visi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <Link href="#" className="hover:text-white">
                   Misi
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -60,12 +60,13 @@ const Footer = () => {
               <br />
               Sukowati, Kab Bojonegoro 62181
             </p>
-            <p className="text-sm text-gray-300 mt-2">smkn4bojonegoro@sch.id</p>
-            <p className="text-sm text-gray-300">12947128746124</p>
+            <p className="text-sm text-gray-300 mt-2">
+              smkn4bojonegoro@yahoo.co.id
+            </p>
+            <p className="text-sm text-gray-300">0353892418</p>
           </div>
         </div>
 
-        {/* Kolom 3 */}
         <div>
           <h3 className="font-semibold mb-2">Newsletter</h3>
           <p className="text-sm text-gray-300 mb-3">

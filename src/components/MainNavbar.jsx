@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const MainNavbar = () => {
@@ -30,29 +31,31 @@ const MainNavbar = () => {
       >
         <div className="flex items-center space-x-3">
           <img src={logo} className="w-8 h-12" alt="logo" />
-          <span className="font-semibold text-lg">SMKN 4 Bojonegoro</span>
+          <Link to="/" className="font-semibold text-lg">
+            SMKN 4 Bojonegoro
+          </Link>
         </div>
 
         <ul className="hidden md:flex space-x-6 text-sm items-center">
           <li>
-            <a href="/" className="hover:text-yellow-400">
+            <Link to="/" className="hover:text-yellow-400">
               Beranda
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" className="hover:text-yellow-400">
+            <Link to="/about" className="hover:text-yellow-400">
               Tentang
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/visi-misi" className="hover:text-yellow-400">
+            <Link to="/visi-misi" className="hover:text-yellow-400">
               Visi Misi
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/jurusan" className="hover:text-yellow-400">
+            <Link to="/jurusan" className="hover:text-yellow-400">
               Jurusan
-            </a>
+            </Link>
           </li>
 
           <li className="relative">
@@ -72,40 +75,47 @@ const MainNavbar = () => {
             {isProgramOpen && (
               <ul className="absolute bg-white text-indigo-950 rounded-md shadow-md mt-2 py-2 w-40">
                 <li>
-                  <a
-                    href="/cekkelulusan"
+                  <Link
+                    to="/cekkelulusan"
                     className="block px-4 py-2 hover:bg-yellow-100 transition"
                   >
                     Cek Kelulusan
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/partnership"
+                  <Link
+                    to="/partnership"
                     className="block px-4 py-2 hover:bg-yellow-100 transition"
                   >
                     Partnership
-                  </a>
+                  </Link>
                 </li>
               </ul>
             )}
           </li>
 
           <li>
-            <a href="/alumni" className="hover:text-yellow-400">
+            <Link to="/alumni" className="hover:text-yellow-400">
               Lulusan
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/news" className="hover:text-yellow-400">
+            <Link to="/news" className="hover:text-yellow-400">
               Berita
-            </a>
+            </Link>
           </li>
         </ul>
 
-        <button className="bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition">
+        <Link
+          to="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "mailto:smkn4bojonegoro@gmail.com";
+          }}
+          className="bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition"
+        >
           Contact Us
-        </button>
+        </Link>
       </div>
     </nav>
   );

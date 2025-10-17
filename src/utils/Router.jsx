@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout";
 
 import Home from "../pages/Home";
 import AboutPage from "../pages/AboutPage";
@@ -20,39 +21,45 @@ import News from "../components/News";
 import ErrorBoundary from "./RouteErrorBoundary";
 
 const router = createBrowserRouter([
-	{
-		path: "/",
-		element: (
-			<>
-				<Home />
-				<About />
-				<Sambutan />
-				<VisiMisi />
-				<ErrorBoundary>
-					<Jurusan />
-				</ErrorBoundary>
-				<Alumni />
-				<News />
-				<Feedback />
-			</>
-		),
-	},
-	{ path: "/about", element: <AboutPage /> },
-	{ path: "/visi-misi", element: <VisimisiPage /> },
-	{
-		path: "/jurusan",
-		element: (
-			<ErrorBoundary>
-				<JurusanPage />
-			</ErrorBoundary>
-		),
-	},
-	{ path: "/alumni", element: <AlumniPage /> },
-	{ path: "/news", element: <BeritaPage /> },
-	{ path: "/cekkelulusan", element: <CekKelulusan /> },
-	{ path: "/partnership", element: <PartnershipPage /> },
-	{ path: "/feedback", element: <Feedback /> },
-	{ path: "/prestasi", element: <PrestasiPage /> },
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <>
+            <Home />
+            <About />
+            <Sambutan />
+            <VisiMisi />
+            <ErrorBoundary>
+              <Jurusan />
+            </ErrorBoundary>
+            <Alumni />
+            <News />
+            <Feedback />
+          </>
+        ),
+      },
+      { path: "about", element: <AboutPage /> },
+      { path: "visi-misi", element: <VisimisiPage /> },
+      {
+        path: "jurusan",
+        element: (
+          <ErrorBoundary>
+            <JurusanPage />
+          </ErrorBoundary>
+        ),
+      },
+      { path: "alumni", element: <AlumniPage /> },
+      { path: "news", element: <BeritaPage /> },
+      { path: "cekkelulusan", element: <CekKelulusan /> },
+      { path: "partnership", element: <PartnershipPage /> },
+      { path: "feedback", element: <Feedback /> },
+      { path: "prestasi", element: <PrestasiPage /> },
+    ],
+  },
 ]);
 
 export default router;

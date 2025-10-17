@@ -1,2 +1,2 @@
-export const API_URL = "http://api-jhic.test/api";
-export const STORAGE_URL = "http://api-jhic.test/storage";
+export const API_URL = "https://api.smkn4bojonegoro.sch.id/api";
+export const STORAGE_URL = "https://api.smkn4bojonegoro.sch.id/storage";

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Alumni = () => {
   const alumni = [
@@ -31,9 +32,12 @@ const Alumni = () => {
             untuk perusahaanmu
           </p>
         </div>
-        <button className="bg-indigo-900 text-white px-6 py-3 rounded-lg hover:bg-indigo-800 transition">
+        <Link
+          to="/alumni"
+          className="bg-indigo-900 text-white px-6 py-3 rounded-lg hover:bg-indigo-800 transition"
+        >
           lihat semua
-        </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

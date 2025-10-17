@@ -9,19 +9,7 @@ import Footer from "./components/Footer";
 import router from "./utils/Router";
 
 const App = () => {
-  return (
-    <>
-      <TopNavbar />
-      <MainNavbar />
-      <ChatButton />
-
-      <main>
-        <RouterProvider router={router} />
-      </main>
-
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
