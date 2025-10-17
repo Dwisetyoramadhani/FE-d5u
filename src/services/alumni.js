@@ -13,3 +13,10 @@ export async function fetchAlumniById(id) {
   const item = payload?.data ?? null;
   return item;
 }
+
+export async function fetchLatestForLanding(params = {}) {
+  const res = await api.get('/landing/alumni', { params });
+  const payload = res.data;
+  const items = payload?.data?.data ?? payload?.data ?? [];
+  return items;
+}

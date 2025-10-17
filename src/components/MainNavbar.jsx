@@ -106,14 +106,7 @@ const MainNavbar = () => {
           </li>
         </ul>
 
-        <Link
-          to="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = "mailto:smkn4bojonegoro@gmail.com";
-          }}
-          className="bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition"
-        >
+        <Link className="w-auto bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition">
           Contact Us
         </Link>
       </div>

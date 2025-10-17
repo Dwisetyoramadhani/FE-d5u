@@ -6,7 +6,8 @@ export async function fetchNews(params = {}) {
   // backend shape: { meta, data: { paginate, data: [ ... ] }, success }
   const payload = res.data;
   const items = payload?.data?.data ?? [];
-  return items;
+  const paginate = payload?.data?.paginate ?? null;
+  return { items, paginate };
 }
 
 // fetch single news by slug -> return object or null

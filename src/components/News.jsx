@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
 
 const News = () => {
-  const [newsData, setNewsData] = useState([]);
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     let mounted = true;
     setLoading(true);
-    fetchNews()
-      .then((data) => {
+    fetchNews({ page: 1, per_page: 3 })
+      .then(({ items }) => {
         if (!mounted) return;
-        setNewsData(data.data ?? data);
+        setItems(items || []);
       })
       .catch((err) => {
         if (!mounted) return;
@@ -26,6 +27,9 @@ const News = () => {
     };
   }, []);
 
+  if (loading) return <div className="p-8">Loading...</div>;
+  if (error) return <div className="p-8 text-red-500">{error}</div>;
+
   return (
     <section className="bg-[#0B0D52] py-16 px-8 text-white">
       <div className="text-center mb-10">
@@ -36,22 +40,12 @@ const News = () => {
         </p>
       </div>
 
-      <div className="flex justify-center mb-10">
-        <input
-          type="text"
-          placeholder="Cari berita"
-          className="w-full max-w-xl bg-white px-6 py-3 rounded-lg text-gray-800 text-base outline-none focus:ring-2 focus:ring-yellow-400"
-        />
-      </div>
-
-      {loading && <p className="text-center">Loading...</p>}
-      {error && <p className="text-center text-red-400">{error}</p>}
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
-        {newsData.map((item, index) => (
-          <div
+        {items.slice(0,3).map((item, index) => (
+          <Link
             key={index}
-            className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+            to={`/news/${item.slug ?? item.id}`}
+            className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition block"
           >
             {item.thumbnail || item.image ? (
               <img
@@ -61,19 +55,17 @@ const News = () => {
               />
             ) : null}
             <div className="p-5">
-            <p className="text-gray-600 text-sm mb-1">
-              {new Date(item.created_at).toLocaleDateString()}
-            </p>
+              <p className="text-gray-600 text-sm mb-1">{item.created_at ? new Date(item.created_at).toLocaleDateString() : ''}</p>
               <h3 className="text-lg font-bold mb-2">{item.title || item.heading}</h3>
-              {item.desc && (
-                <p className="text-gray-700 text-sm mb-3">{item.desc}</p>
-              )}
-              <p className="text-sm font-medium text-gray-800">
-                {item.category}
-              </p>
             </div>
-          </div>
+          </Link>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Link to="/news" className="px-6 py-3 bg-yellow-400 text-indigo-900 rounded font-semibold">
+          Lihat Semua
+        </Link>
       </div>
     </section>
   );

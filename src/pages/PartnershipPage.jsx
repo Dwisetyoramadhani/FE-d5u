@@ -69,9 +69,9 @@ const PartnershipPage = () => {
             {/* Logo */}
             <div className="w-full h-24 flex items-center justify-center border-b border-gray-200 mb-3">
               <img
-                src={storageUrl(partner.logo ?? partner.image)}
+                src={storageUrl(partner.photo ?? partner.logo ?? partner.image)}
                 alt={partner.name}
-                className="h-12 object-contain"
+                className="w-full h-full object-cover rounded-md"
               />
             </div>
 

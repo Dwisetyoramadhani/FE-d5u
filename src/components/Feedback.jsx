@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { sendFeedback } from "../services/feedback";
 
 const Feedback = () => {
   const [rating, setRating] = useState(0);
@@ -7,14 +8,26 @@ const Feedback = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(
-      `Terima kasih atas feedback Anda!\nNama: ${name}\nRating: ${rating}\nPesan: ${message}`
-    );
-    setName("");
-    setMessage("");
-    setRating(0);
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+    try {
+      await sendFeedback({ name: name || null, rating, message });
+      setSuccess("Terima kasih atas feedback Anda!");
+      setName("");
+      setMessage("");
+      setRating(0);
+    } catch (err) {
+      setError(err.message || "Gagal mengirim feedback");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -82,10 +95,14 @@ const Feedback = () => {
           <button
             type="submit"
             className="bg-[#08084C] text-white font-semibold w-full md:w-auto px-10 py-3 rounded-lg hover:bg-[#0b0d80] transition"
+            disabled={loading}
           >
-            Kirim feedback
+            {loading ? 'Mengirim...' : 'Kirim feedback'}
           </button>
         </div>
+
+        {success && <p className="text-center text-green-600 mt-3">{success}</p>}
+        {error && <p className="text-center text-red-600 mt-3">{error}</p>}
 
         <p className="text-center text-sm text-gray-700 mt-4">
           *Feedback anda akan menjadi pertimbangan kami pada pengembangan
