@@ -7,7 +7,7 @@ const TopNavbar = () => {
         <div className="flex items-center space-x-2">
           <div className="flex flex-col">
             <span className="font-semibold text-sky-800">EMAIL</span>
-            <span className="text-gray-700">loremipsum@gmail.com</span>
+            <span className="text-gray-700">smkn4bojonegoro@yahoo.co.id</span>
           </div>
         </div>
         <div className="flex items-center space-x-2">
