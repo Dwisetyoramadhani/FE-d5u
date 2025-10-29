@@ -106,18 +106,21 @@ const NewsDetail = () => {
             {!latestLoading && latest.length === 0 && (
               <p className="text-sm text-gray-500">Tidak ada berita terbaru</p>
             )}
-
-            {!latestLoading && latest.map((n) => (
-              <Link key={n.slug || n.id} to={`/news/${n.slug || n.id}`} className="flex gap-4 items-center bg-white p-3 rounded-lg hover:shadow-md transition">
-                <img src={storageUrl(n.thumbnail)} alt={n.title} className="w-20 h-14 object-cover rounded-md" />
-                <div>
-                  <span className="bg-yellow-400 text-xs px-2 py-1 rounded-md text-gray-800 font-semibold">
-                    {n.published_at ? new Date(n.published_at).toLocaleDateString("id-ID") : ''}
-                  </span>
-                  <h4 className="text-sm font-bold mt-2">{n.title}</h4>
-                </div>
-              </Link>
-            ))}
+            {!latestLoading && latest.length > 0 && (
+              <>
+                {latest.map((n) => (
+                  <Link key={n.slug || n.id} to={`/news/${n.slug || n.id}`} className="flex gap-4 items-center bg-white p-3 rounded-lg hover:shadow-md transition">
+                    <img src={storageUrl(n.thumbnail)} alt={n.title} className="w-20 h-14 object-cover rounded-md" />
+                    <div>
+                      <span className="bg-yellow-400 text-xs px-2 py-1 rounded-md text-gray-800 font-semibold">
+                        {n.published_at ? new Date(n.published_at).toLocaleDateString("id-ID") : ''}
+                      </span>
+                      <h4 className="text-sm font-bold mt-2">{n.title}</h4>
+                    </div>
+                  </Link>
+                ))}
+              </>
+            )}
           </div>
 
           <div className="bg-white p-4 rounded-lg shadow-sm">

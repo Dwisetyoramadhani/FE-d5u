@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Search, Mail, Globe, Hash, ArrowRight } from "lucide-react";
 import { fetchAlumni } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
-import placeholderAvatar from "../assets/foto-lulusan.png";
+import placeholderAvatar from "../assets/avatar.jpg";
 
 const AlumniPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -118,8 +118,9 @@ const AlumniPage = () => {
 
             <div className="flex justify-end mt-3">
               <a
-                href="#"
+                href={`/alumni/${alumni.id}`}
                 className="text-sm font-medium text-gray-700 hover:text-indigo-600 flex items-center space-x-1"
+                as="button"
               >
                 <span>Lihat detail</span>
                 <ArrowRight size={14} />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLatestForLanding } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
-import placeholder from "../assets/foto-lulusan.png";
+import placeholder from "../assets/avatar.jpg";
 
 const Alumni = () => {
   const [alumni, setAlumni] = useState([]);
@@ -41,9 +41,10 @@ const Alumni = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {alumni.map((item, index) => (
-          <div
+          <Link
+            to={`/alumni/${item.id}`}
             key={item.id ?? index}
-            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
+            className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition block"
           >
             <img
               src={item.photo ? storageUrl(item.photo) : placeholder}
@@ -56,7 +57,7 @@ const Alumni = () => {
                 {item.work_time_formatted ?? item.work_time}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

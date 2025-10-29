@@ -16,10 +16,11 @@ import Sambutan from "../components/Sambutan";
 import VisiMisi from "../components/VisiMisi";
 import Jurusan from "../components/Jurusan";
 import Alumni from "../components/Alumni";
+import AlumniDetail from "../pages/AlumniDetail";
 import News from "../components/News";
-
+import NewsWatch from "../pages/NewsWatch";
 import ErrorBoundary from "./RouteErrorBoundary";
-
+import { i } from "framer-motion/client";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,8 +54,11 @@ const router = createBrowserRouter([
         ),
       },
       { path: "alumni", element: <AlumniPage /> },
+      
       { path: "news", element: <BeritaPage /> },
       { path: "cekkelulusan", element: <CekKelulusan /> },
+      { path: "news/:slug", element: <NewsWatch /> },
+      {path: "alumni/:id", element: <AlumniDetail />},
       { path: "partnership", element: <PartnershipPage /> },
       { path: "feedback", element: <Feedback /> },
       { path: "prestasi", element: <PrestasiPage /> },
