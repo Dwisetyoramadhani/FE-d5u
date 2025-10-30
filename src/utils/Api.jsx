@@ -14,5 +14,22 @@ api.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
-  })
-  export default api;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Handle common error responses
+    if (error.response?.status === 401) {
+      localStorage.removeItem("token");
+      // You can add redirect to login if needed
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default api;

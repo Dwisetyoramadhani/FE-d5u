@@ -1,3 +1,4 @@
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 
@@ -20,7 +21,8 @@ import AlumniDetail from "../pages/AlumniDetail";
 import News from "../components/News";
 import NewsWatch from "../pages/NewsWatch";
 import ErrorBoundary from "./RouteErrorBoundary";
-import { i } from "framer-motion/client";
+import { LARAVEL_URL } from "./ConstantVariable";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +66,29 @@ const router = createBrowserRouter([
       { path: "prestasi", element: <PrestasiPage /> },
     ],
   },
+  {
+    path: "/admin",
+    element: <AdminRedirect />,
+  },
+  {
+    path: "/admin/*",
+    element: <AdminRedirect />,
+  },
 ]);
+
+function AdminRedirect() {
+  React.useEffect(() => {
+    // Direct redirect without page transition
+    window.location.replace(`${LARAVEL_URL}/admin`);
+  }, []);
+  
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-indigo-950">
+      <div className="text-white text-center">
+        <p className="text-xl">Redirecting to admin panel...</p>
+      </div>
+    </div>
+  );
+}
 
 export default router;

@@ -1,3 +1,4 @@
+// PartnershipPage.jsx
 import React, { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,6 @@ const PartnershipPage = () => {
     fetchCompanies()
       .then((data) => {
         if (!mounted) return;
-        // fetchCompanies returns an array of items (KISS)
         setPartners(data);
       })
       .catch((err) => {
@@ -31,24 +31,26 @@ const PartnershipPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#eaf4f6] px-8 py-6 relative">
-      {/* Tombol Kembali */}
-      <button
-        onClick={() => navigate(-1)}
-        className="absolute top-6 left-6 bg-[#d7e5eb] p-2 rounded-full hover:bg-[#c8dce2] transition"
-      >
-        <ArrowLeft className="w-5 h-5 text-[#0b0b3b]" />
-      </button>
+    <div className="min-h-screen bg-[#eaf4f6] px-8 py-6">
+      {/* Header Section - Tombol Kembali & Judul */}
+      <div className="bg-[#d7ebf5] rounded-lg p-6 mb-8 flex items-start gap-4">
+        {/* Tombol Kembali */}
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-[#c8dce2] p-2 rounded-full hover:bg-[#b9ced5] transition"
+        >
+          <ArrowLeft className="w-5 h-5 text-[#0b0b3b]" />
+        </button>
 
-      {/* Header */}
-      <div className="bg-[#d7ebf5] rounded-lg p-6 flex items-center justify-between mb-8">
-        <div>
+        {/* Konten Header */}
+        <div className="flex-1">
           <h2 className="text-2xl font-semibold text-[#0b0b3b]">Partnership</h2>
           <p className="text-sm text-gray-600 max-w-xl mt-1">
-            Partnership adalah halaman untuk perusahaan yang bekerja sama dengan
-            SMK Negeri 4 Bojonegoro membagikan lowongan pekerjaan
+            Partnership adalah halaman untuk perusahaan yang bekerja sama dengan SMK Negeri 4 Bojonegoro membagikan lowongan pekerjaan
           </p>
         </div>
+
+        {/* Ilustrasi */}
         <img
           src="/assets/partner-illustration.png"
           alt="Partnership Illustration"
