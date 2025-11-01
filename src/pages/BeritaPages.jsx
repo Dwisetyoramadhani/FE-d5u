@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
 import debounce from "just-debounce-it";
+import defaultImage from "../assets/images.png";
 
 const BeritaPage = () => {
   const [newsData, setNewsData] = useState([]);
@@ -69,13 +70,15 @@ const BeritaPage = () => {
             to={`/news/${item.slug ?? item.id}`}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition block"
           >
-            {item.thumbnail || item.image ? (
-              <img
-                src={storageUrl(item.thumbnail ?? item.image)}
-                alt={item.title}
-                className="w-full h-56 object-cover"
-              />
-            ) : null}
+            <img
+                          src={item.thumbnail ? storageUrl(item.thumbnail) : defaultImage}
+                          alt={item.title}
+                          className="w-full h-96 object-cover"
+                          onError={(e) => {
+                          e.target.onerror = null; // hindari infinite loop
+                          e.target.src = defaultImage;
+                          }}
+                        />
             <div className="p-5">
               <p className="text-gray-600 text-sm mb-1">
                 {item.created_at ? new Date(item.created_at).toLocaleDateString() : ''}

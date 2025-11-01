@@ -67,19 +67,20 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/admin",
+    path: "admin",
     element: <AdminRedirect />,
   },
   {
-    path: "/admin/*",
+    path: "admin/*",
     element: <AdminRedirect />,
   },
 ]);
 
 function AdminRedirect() {
   React.useEffect(() => {
-    // Direct redirect without page transition
-    window.location.replace(`${LARAVEL_URL}/admin`);
+    const url  = `${LARAVEL_URL}/admin`;
+    console.log(url)
+    window.location.replace(url);
   }, []);
   
   return (

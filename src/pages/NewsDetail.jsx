@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { fetchNewsBySlug, fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
-
+import defaultImage from "../assets/images.png";
 const NewsDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -75,13 +75,15 @@ const NewsDetail = () => {
       <div className="grid md:grid-cols-3 gap-10">
         <div className="md:col-span-2">
           <div className="relative">
-            {item.thumbnail && (
-              <img
-                src={storageUrl(item.thumbnail)}
-                alt={item.title}
-                className="rounded-xl w-full h-96 object-cover"
-              />
-            )}
+            <img
+              src={item.thumbnail ? storageUrl(item.thumbnail) : defaultImage}
+              alt={item.title}
+              className="w-full h-96 object-cover"
+              onError={(e) => {
+              e.target.onerror = null; // hindari infinite loop
+              e.target.src = defaultImage;
+              }}
+            />
 
             {formattedDay && (
               <div className="absolute bottom-3 left-3 bg-yellow-400 text-center rounded-md px-3 py-2">

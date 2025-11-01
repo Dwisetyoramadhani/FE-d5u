@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchNewsBySlug } from "../services/news";
 import { storageUrl } from "../utils/storage";
-
+import defaultImage from "../assets/images.png";
 const NewsWatch = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -66,13 +66,16 @@ const NewsWatch = () => {
       </div>
 
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-        {item.thumbnail && (
           <img
-            src={storageUrl(item.thumbnail)}
+            src={item.thumbnail ? storageUrl(item.thumbnail) : defaultImage}
             alt={item.title}
             className="w-full h-96 object-cover"
+            onError={(e) => {
+              e.target.onerror = null; // hindari infinite loop
+              e.target.src = defaultImage;
+            }}
           />
-        )}
+
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-3">{item.title}</h2>
           <p className="text-sm text-gray-500 mb-4">
