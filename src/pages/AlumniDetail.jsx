@@ -38,9 +38,10 @@ const AlumniDetail = () => {
     </div>
   );
 
-  const skills = alumni.skills || alumni.position || 'Belum diisi';
-  const experienceLevel = alumni.experience_level || '-';
-  const availability = (alumni.status_formatted && alumni.status_formatted.toLowerCase().includes('ready')) ? 'Bersedia untuk kolaborasi' : 'Tidak tersedia';
+  const skills = alumni.skills ?? 'Belum diisi';
+  const description = alumni.description ?? 'Belum diisi';
+  const createdAt = alumni.created_at ?? '-';
+  const updatedAt = alumni.updated_at ?? '-';
   const instagram = alumni.social_media?.instagram;
   const linkedin = alumni.social_media?.linkedin;
 
@@ -90,14 +91,11 @@ const AlumniDetail = () => {
                 <label className="block text-sm font-medium text-gray-500 mb-1">Keahlian</label>
                 <p className="font-semibold text-gray-800">{skills}</p>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">Pengalaman</label>
-                <p className="font-semibold text-gray-800">{experienceLevel}</p>
-              </div>
-              <div>
-                {/* <label className="block text-sm font-medium text-gray-500 mb-1">Ketersediaan</label>
-                <p className="font-semibold text-gray-800">{availability}</p> */}
-              </div>
+            </div>
+            {/* Deskripsi */}
+            <div className="mt-6">
+              <label className="block text-sm font-medium text-gray-500 mb-1">Deskripsi</label>
+              <p className="text-gray-800 leading-relaxed">{description}</p>
             </div>
             {/* Social Media Icons */}
             {(instagram || linkedin) && (
@@ -109,11 +107,23 @@ const AlumniDetail = () => {
                       href={`https://instagram.com/${instagram}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-pink-600 hover:text-pink-800"
+                      className="text-pink-600 hover:text-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 rounded"
+                      aria-label="Instagram"
+                      title="Instagram"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3c2.71 0 5 1.29 5 3s-2.29 3-5 3-5-1.29-5-3 2.29-3 5-3zm0 14.2c-2.67 0-8-1.34-8-4v-2.4c0-1.12 1.24-2 2.5-2h1.06c1.62 0 2.72 1.12 2.72 2.72v.3c0 2.72 1.24 4.28 2.72 4.28v.2c0 1.12 1.24 2 2.5 2h1.06c1.62 0 2.72 1.12 2.72 2.72v.3c0 2.72-1.24 4.28-2.72 4.28v.2c0 1.12-1.24 2-2.5 2h-1.06c-1.62 0-2.72-1.12-2.72-2.72v-.3c0-2.72-1.24-4.28-2.72-4.28v-.2c0-1.12-1.24-2-2.5-2H6.5c-1.26 0-2.5 1.12-2.5 2.72v.3c0 2.72 1.24 4.28 2.72 4.28z"/>
+                      {/* Instagram icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        className="w-7 h-7"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z" />
+                        <path d="M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" />
+                        <circle cx="17.5" cy="6.5" r="1" />
                       </svg>
+                      <span className="sr-only">Instagram</span>
                     </a>
                   )}
                   {linkedin && (
@@ -121,11 +131,21 @@ const AlumniDetail = () => {
                       href={`https://linkedin.com/in/${linkedin}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800"
+                      className="text-blue-600 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded"
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.55v-5.895c0-1.418-.034-3.233-1.96-3.233-1.96 0-2.27.77-2.27 2.85V20.452h-3.55V11.006h3.414v1.298h.049c0 1.856 1.217 2.914 2.98 2.914v-.049h.048V20.452h3.55zM5.734 7.742c-1.134 0-2.058-.924-2.058-2.058s.924-2.058 2.058-2.058 2.058.924 2.058 2.058-.924 2.058-2.058 2.058zm1.776 3.256h-3.55V11.006h3.55z"/>
+                      {/* LinkedIn icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        className="w-6 h-6"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.47 4.73-2.47 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4V24h-5V8z" />
                       </svg>
+                      <span className="sr-only">LinkedIn</span>
                     </a>
                   )}
                 </div>

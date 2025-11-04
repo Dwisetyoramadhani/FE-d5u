@@ -68,7 +68,7 @@ const Footer = () => {
         </div>
 
         <div >
-          <h3 className="font-semibold mb-2">Dibuat Untuk:</h3>
+          <h3 className="font-semibold mb-2">Dipersembahkan:</h3>
           <div className="bg-white border rounded-lg ">
             <img
               src={JHICLogo}
