@@ -80,23 +80,23 @@ const AlumniDetail = () => {
           </div>
           {/* Right Panel - More Information */}
           <div className="lg:col-span-2 bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">More Information :</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-4">Informasi lain:</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">Keahlian</label>
-                <p className="font-semibold text-gray-800">{skills}</p>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">Experience Level</label>
-                <p className="font-semibold text-gray-800">{experienceLevel}</p>
-              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-500 mb-1">Email</label>
                 <p className="font-semibold text-gray-800">{alumni.email}</p>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-500 mb-1">Ketersediaan</label>
-                <p className="font-semibold text-gray-800">{availability}</p>
+                <label className="block text-sm font-medium text-gray-500 mb-1">Keahlian</label>
+                <p className="font-semibold text-gray-800">{skills}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-500 mb-1">Pengalaman</label>
+                <p className="font-semibold text-gray-800">{experienceLevel}</p>
+              </div>
+              <div>
+                {/* <label className="block text-sm font-medium text-gray-500 mb-1">Ketersediaan</label>
+                <p className="font-semibold text-gray-800">{availability}</p> */}
               </div>
             </div>
             {/* Social Media Icons */}

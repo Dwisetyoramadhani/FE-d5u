@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-
+import JHICLogo from "../assets/LogoJagoan.png";
 const Footer = () => {
   return (
     <footer className="bg-[#0C0C4C] text-white py-10">
@@ -27,27 +27,27 @@ const Footer = () => {
             <ul className="space-y-1 text-sm text-gray-300">
               {/* {["Home", "About", "Sambutan", "Visi", "Misi"].map((item, i) => ( */}
               <li>
-                <Link to="/" className="hover:text-white">
-                  Home
+                <Link to="/" className="hover:text-yellow-400">
+                  Beranda
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white">
+                <Link to="/about" className="hover:text-yellow-400">
                   Tentang
                 </Link>
               </li>
               <li>
-                <Link to="/visi-misi" className="hover:text-white">
+                <Link to="/visi-misi" className="hover:text-yellow-400">
                   Visi Misi
                 </Link>
               </li>
               <li>
-                <Link to="/jurusan" className="hover:text-white">
+                <Link to="/jurusan" className="hover:text-yellow-400">
                   Jurusan
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="hover:text-white">
+                <Link to="/news" className="hover:text-yellow-400">
                   Berita
                 </Link>
               </li>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2">Contact</h3>
+            <h3 className="font-semibold mb-2">Kontak</h3>
             <p className="text-sm text-gray-300 leading-relaxed">
               Jalan Raya Surabaya, Sukowati, Kab Bojonegoro 62181
             </p>
@@ -67,21 +67,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div>
-          <h3 className="font-semibold mb-2">Newsletter</h3>
-          <p className="text-sm text-gray-300 mb-3">
-            Subscribe untuk update terbaru kami
-          </p>
-          <div className="flex justify-center md:justify-start">
-            <input
-              type="email"
-              placeholder="Email kamu..."
-              className="w-3/4 sm:w-auto flex-grow bg-white px-3 py-2 rounded-l-md text-black focus:outline-none"
+        <div >
+          <h3 className="font-semibold mb-2">Dibuat Untuk:</h3>
+          <div className="bg-white border rounded-lg ">
+            <img
+              src={JHICLogo}
+              alt="Logo Jagoan Hosting"
+              className="w-full  object-contain"
             />
-            <button className="bg-yellow-400 px-4 py-2 rounded-r-md text-black font-semibold">
-              ➜
-            </button>
-          </div>
+           </div> 
         </div>
       </div>
 
