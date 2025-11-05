@@ -40,8 +40,6 @@ const AlumniDetail = () => {
 
   const skills = alumni.skills ?? 'Belum diisi';
   const description = alumni.description ?? 'Belum diisi';
-  const createdAt = alumni.created_at ?? '-';
-  const updatedAt = alumni.updated_at ?? '-';
   const instagram = alumni.social_media?.instagram;
   const linkedin = alumni.social_media?.linkedin;
 

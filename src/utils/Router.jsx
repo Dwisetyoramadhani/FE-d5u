@@ -22,6 +22,12 @@ import News from "../components/News";
 import NewsWatch from "../pages/NewsWatch";
 import ErrorBoundary from "./RouteErrorBoundary";
 import { LARAVEL_URL } from "./ConstantVariable";
+import RplPage from "../pages/RplPage";
+import GpPage from "../pages/GpPage";
+import TpPage from "../pages/TpPage";
+import PhPage from "../pages/PhPage";
+import KlPage from "../pages/KlPage";
+import AtrPage from "../pages/AtrPage";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +70,12 @@ const router = createBrowserRouter([
       { path: "partnership", element: <PartnershipPage /> },
       { path: "feedback", element: <Feedback /> },
       { path: "prestasi", element: <PrestasiPage /> },
+      {path:"rekayasa-perangkat-lunak" , element:<RplPage/>},
+      {path:"geologi-pertambangan" , element:<GpPage/>},
+      {path:"teknik-pengelasan" , element:<TpPage/>},
+      {path:"perhotelan" , element:<PhPage/>},
+      {path:"kuliner" , element:<KlPage/>},
+      {path:"agribisnis-ternak-ruminansia" , element:<AtrPage/>}
     ],
   },
   {
