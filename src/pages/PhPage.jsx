@@ -3,7 +3,7 @@ import cardImg from '../assets/images.png';
 import gallery1 from '../assets/foto-lulusan.png';
 import GpImage from '../assets/headgp.jpg'
 import gallery2 from '../assets/LogoJagoan.png';
-
+import logoPH from '../assets/logoph.JPG';
 const PhPage = () => {
     return (
         <div className="bg-white text-red-800">
@@ -14,7 +14,7 @@ const PhPage = () => {
                 {/* Gambar Hero */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8 relative">
                     <img
-                    src={GpImage}
+                    src={logoPH}
                     alt="Group Photo"
                     className="w-full h-auto object-cover"
                     />
@@ -61,18 +61,17 @@ const PhPage = () => {
                         WebkitTextStroke: '1px #FF0000',
                         }}
                     >
-                        TEKNIK<br />
-                        PENGELASAN
+                        PERHOTELAN
                     </h1>
                     </div>
                 </div>
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <div className="w-10 h-10 bg-blue-500 rounded"></div>
+                    <img src={logoPH} alt="" className='w-10 h-10' />
                     <div>
                     <p className="text-xs text-red-600">SMK</p>
-                    <p className="text-sm font-semibold">Rekayasa Perangkat Lunak</p>
+                    <p className="text-sm font-semibold">Perhotelan</p>
                     </div>
                 </div>
                 </div>
@@ -85,7 +84,7 @@ const PhPage = () => {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-red-700 tracking-wide">Tentang</h2>
-                        <p className="text-3xl sm:text-4xl font-extrabold text-red-500">TP</p>
+                        <p className="text-3xl sm:text-4xl font-extrabold text-red-500">PERHOTELAN</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,10 +96,12 @@ const PhPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-red-700">
-                                    <li>Pemrograman Web dan Mobile</li>
-                                    <li>Basis Data dan SQL</li>
-                                    <li>Version Control (Git)</li>
-                                    <li>UI/UX dasar</li>
+                                   <li>Front Office (layanan resepsionis dan reservasi)</li>
+                                   <li>Housekeeping (penataan dan perawatan kamar serta area hotel)</li>
+                                   <li>Food & Beverage Service (pelayanan makanan dan minuman)</li>
+                                   <li>Food & Beverage Product (dasar-dasar tata boga)</li>
+                                   <li>Etika pelayanan dan komunikasi tamu</li>
+                                   <li>Manajemen operasional perhotelan</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,7 +114,7 @@ const PhPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
                                 <p className="mt-3 text-sm text-red-700">
-                                    Lulusan siap bekerja di bidang pengembangan perangkat lunak, QA, DevOps, hingga wirausaha digital.
+                                    Jurusan Perhotelan SMKN 4 Bojonegoro mempersiapkan siswa untuk terampil dan profesional di bidang pelayanan jasa perhotelan. Program ini menekankan keterampilan praktis dan etika kerja sesuai dengan standar industri perhotelan nasional maupun internasional.
                                 </p>
                             </div>
                         </div>
@@ -126,9 +127,11 @@ const PhPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-red-700">
-                                    <li>Lab komputer ber-AC</li>
-                                    <li>Perangkat modern dan jaringan cepat</li>
-                                    <li>Perangkat lunak berlisensi</li>
+                                    <li>Laboratorium Front Office</li>
+                                    <li>Laboratorium Housekeeping</li>
+                                    <li>Laboratorium Food & Beverage Service</li>
+                                    <li>Peralatan praktik sesuai standar industri</li>
+                                    <li>Kegiatan praktik kerja lapangan di hotel mitra</li>
                                 </ul>
                             </div>
                         </div>

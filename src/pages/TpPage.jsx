@@ -3,6 +3,9 @@ import cardImg from '../assets/images.png';
 import gallery1 from '../assets/foto-lulusan.png';
 import GpImage from '../assets/headgp.jpg'
 import gallery2 from '../assets/LogoJagoan.png';
+import logoTP from '../assets/logotp.JPG';
+import tp1 from '../assets/tp1.jpg';
+import tp2 from '../assets/tp2.jpg';
 
 const GpPage = () => {
     return (
@@ -69,10 +72,10 @@ const GpPage = () => {
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <div className="w-10 h-10 bg-blue-500 rounded"></div>
+                    <img src={logoTP} alt="" className='w-10 h-10' />
                     <div>
                     <p className="text-xs text-gray-600">SMK</p>
-                    <p className="text-sm font-semibold">Rekayasa Perangkat Lunak</p>
+                    <p className="text-sm font-semibold">Teknik Pengelasan</p>
                     </div>
                 </div>
                 </div>
@@ -85,7 +88,7 @@ const GpPage = () => {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-700 tracking-wide">Tentang</h2>
-                        <p className="text-3xl sm:text-4xl font-extrabold text-gray-500">TP</p>
+                        <p className="text-3xl sm:text-4xl font-extrabold text-gray-500">TEKNIK PENGELASAN</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,10 +100,12 @@ const GpPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-gray-700">
-                                    <li>Pemrograman Web dan Mobile</li>
-                                    <li>Basis Data dan SQL</li>
-                                    <li>Version Control (Git)</li>
-                                    <li>UI/UX dasar</li>
+                                    <li>Dasar-dasar teknik pengelasan dan fabrikasi logam</li>
+                                    <li>Pengelasan SMAW, GMAW (MIG/MAG), GTAW (TIG), dan OAW</li>
+                                    <li>Pemotongan logam dengan mesin maupun manual</li>
+                                    <li>Membaca dan menggambar teknik konstruksi logam</li>
+                                    <li>Perhitungan konstruksi serta penggunaan alat ukur teknik</li>
+                                    <li>Keselamatan dan kesehatan kerja (K3) bidang pengelasan</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,7 +118,7 @@ const GpPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
                                 <p className="mt-3 text-sm text-gray-700">
-                                    Lulusan siap bekerja di bidang pengembangan perangkat lunak, QA, DevOps, hingga wirausaha digital.
+                                    Jurusan Teknik Pengelasan (Welding) SMKN 4 Bojonegoro merupakan program keahlian yang membekali siswa dengan keterampilan di bidang penyambungan, pemotongan, dan pembentukan logam menggunakan berbagai teknik pengelasan;. Program ini dirancang untuk mencetak tenaga terampil yang siap kerja di bidang manufaktur, konstruksi, hingga industri migas.
                                 </p>
                             </div>
                         </div>
@@ -126,9 +131,11 @@ const GpPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-gray-700">
-                                    <li>Lab komputer ber-AC</li>
-                                    <li>Perangkat modern dan jaringan cepat</li>
-                                    <li>Perangkat lunak berlisensi</li>
+                                    <li>Bengkel las dengan peralatan lengkap</li>
+                                    <li>Mesin las listrik, las gas, MIG/MAG, dan TIG</li>
+                                    <li>Alat potong logam modern</li>
+                                    <li>Perlengkapan keselamatan kerja sesuai standar industri</li>
+                                    <li>Program praktik kerja lapangan (PKL) di perusahaan mitra</li>
                                 </ul>
                             </div>
                         </div>
@@ -146,23 +153,15 @@ const GpPage = () => {
                     {/* Gallery Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
+                            <img src={tp1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 2" className="w-full h-48 object-cover" />
+                            <img src={tp2} alt="Kegiatan 2" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
                             <img src={gallery1} alt="Kegiatan 3" className="w-full h-48 object-cover" />
                         </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 4" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 5" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 6" className="w-full h-48 object-cover" />
-                        </div>
+                       
                     </div>
                 </div>
 

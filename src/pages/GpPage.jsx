@@ -3,7 +3,13 @@ import cardImg from '../assets/images.png';
 import gallery1 from '../assets/foto-lulusan.png';
 import GpImage from '../assets/headgp.jpg'
 import gallery2 from '../assets/LogoJagoan.png';
-
+import logoGP from '../assets/logogp.jpg';
+import gp1 from '../assets/gp1.jpg';
+import gp2 from '../assets/gp2.jpg';
+import gp3 from '../assets/gp3.jpg';
+import gp4 from '../assets/gp4.jpg';
+import gp5 from '../assets/gp5.jpg';
+import gp6 from '../assets/gp6.jpg';
 const GpPage = () => {
     return (
         <div className="bg-white text-gray-800">
@@ -69,10 +75,10 @@ const GpPage = () => {
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <div className="w-10 h-10 bg-blue-500 rounded"></div>
+                    <img src={logoGP} alt="" className='w-10 h-10' />
                     <div>
                     <p className="text-xs text-gray-600">SMK</p>
-                    <p className="text-sm font-semibold">Rekayasa Perangkat Lunak</p>
+                    <p className="text-sm font-semibold">Geologi Pertambangan</p>
                     </div>
                 </div>
                 </div>
@@ -92,15 +98,17 @@ const GpPage = () => {
                         {/* Card 1 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Kompetensi" className="w-full h-full object-cover" />
+                                <img src={gp1} alt="Kompetensi" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-gray-700">
-                                    <li>Pemrograman Web dan Mobile</li>
-                                    <li>Basis Data dan SQL</li>
-                                    <li>Version Control (Git)</li>
-                                    <li>UI/UX dasar</li>
+                                    <li>Geologi dasar dan struktur bumi</li>
+                                    <li>Teknik pemetaan dan survey geologi</li>
+                                    <li>Eksplorasi sumber daya mineral dan batubara</li>
+                                    <li>Pengeboran dan pengambilan sampel geologi</li>
+                                    <li>Analisis laboratorium geologi</li>
+                                    <li>Keselamatan kerja dan lingkungan pertambangan</li>
                                 </ul>
                             </div>
                         </div>
@@ -108,12 +116,12 @@ const GpPage = () => {
                         {/* Card 2 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Profil Jurusan" className="w-full h-full object-cover" />
+                                <img src={gp2} alt="Profil Jurusan" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
                                 <p className="mt-3 text-sm text-gray-700">
-                                    Lulusan siap bekerja di bidang pengembangan perangkat lunak, QA, DevOps, hingga wirausaha digital.
+                                    Jurusan Geologi Pertambangan (GP) SMKN 4 Bojonegoro merupakan salah satu program keahlian yang mempelajari tentang ilmu kebumian, khususnya terkait eksplorasi dan pemanfaatan sumber daya mineral serta batuan. Siswa dibekali dengan pengetahuan geologi dasar, teknik pemetaan, pengeboran, hingga pengolahan hasil tambang dengan tetap memperhatikan aspek keselamatan dan lingkungan.
                                 </p>
                             </div>
                         </div>
@@ -121,14 +129,15 @@ const GpPage = () => {
                         {/* Card 3 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Fasilitas" className="w-full h-full object-cover" />
+                                <img src={gp3} alt="Fasilitas" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-gray-700">
-                                    <li>Lab komputer ber-AC</li>
-                                    <li>Perangkat modern dan jaringan cepat</li>
-                                    <li>Perangkat lunak berlisensi</li>
+                                    <li>Laboratorium geologi dan mineral</li>
+                                    <li>Peralatan pemetaan dan survey modern</li>
+                                    <li>Fasilitas praktik lapangan</li>
+                                    <li>Software pendukung analisis geologi</li>
                                 </ul>
                             </div>
                         </div>
@@ -146,27 +155,16 @@ const GpPage = () => {
                     {/* Gallery Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
+                            <img src={gp4} alt="Kegiatan 1" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 2" className="w-full h-48 object-cover" />
+                            <img src={gp5} alt="Kegiatan 2" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 3" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 4" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 5" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 6" className="w-full h-48 object-cover" />
+                            <img src={gp6} alt="Kegiatan 3" className="w-full h-48 object-cover" />
                         </div>
                     </div>
-                </div>
-
-                
+                </div> 
             </section>
         </div>
     );

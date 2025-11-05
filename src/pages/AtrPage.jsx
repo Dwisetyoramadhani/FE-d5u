@@ -3,7 +3,7 @@ import cardImg from '../assets/images.png';
 import gallery1 from '../assets/foto-lulusan.png';
 import GpImage from '../assets/headgp.jpg'
 import gallery2 from '../assets/LogoJagoan.png';
-
+import logoATR from '../assets/logoatr.jpeg';
 const AtrPage = () => {
     return (
         <div className="bg-white text-green-800">
@@ -58,21 +58,21 @@ const AtrPage = () => {
                     <h1
                         className="text-sm sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight drop-shadow-lg"
                         style={{
-                        WebkitTextStroke: '1px #FF0000',
+                        WebkitTextStroke: '1px #008000',
                         }}
                     >
-                        TEKNIK<br />
-                        PENGELASAN
+                        AGRIBISNIS<br />
+                        TERNAK RUMINANSIA
                     </h1>
                     </div>
                 </div>
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <div className="w-10 h-10 bg-blue-500 rounded"></div>
+                    <img src={logoATR} alt="Logo SMK" className="w-10 h-10" />
                     <div>
                     <p className="text-xs text-green-600">SMK</p>
-                    <p className="text-sm font-semibold">Rekayasa Perangkat Lunak</p>
+                    <p className="text-sm font-semibold">Agribisnis Ternak Ruminansia</p>
                     </div>
                 </div>
                 </div>
@@ -85,7 +85,7 @@ const AtrPage = () => {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-green-700 tracking-wide">Tentang</h2>
-                        <p className="text-3xl sm:text-4xl font-extrabold text-green-500">TP</p>
+                        <p className="text-3xl sm:text-4xl font-extrabold text-green-500">ATR</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,10 +97,13 @@ const AtrPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-green-700">
-                                    <li>Pemrograman Web dan Mobile</li>
-                                    <li>Basis Data dan SQL</li>
-                                    <li>Version Control (Git)</li>
-                                    <li>UI/UX dasar</li>
+                                    <li>Dasar-dasar peternakan ruminansia</li>
+                                    <li>Teknik pemeliharaan sapi, kambing, dan domba</li>
+                                    <li>Perkawinan, reproduksi, dan kesehatan ternak</li>
+                                    <li>Manajemen pakan dan nutrisi ternak</li>
+                                    <li>Pengolahan hasil ternak (susu, daging, pupuk organik)</li>
+                                    <li>Manajemen usaha dan pemasaran produk peternakan</li>
+                                    <li>Biosekuriti dan keselamatan kerja bidang peternakan</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,7 +116,9 @@ const AtrPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
                                 <p className="mt-3 text-sm text-green-700">
-                                    Lulusan siap bekerja di bidang pengembangan perangkat lunak, QA, DevOps, hingga wirausaha digital.
+                                    Jurusan Agribisnis Ternak Ruminansia (ATR) SMKN 4 Bojonegoro adalah program keahlian yang fokus pada pengelolaan usaha peternakan hewan ruminansia, seperti sapi, kambing, dan domba. 
+
+                                    Siswa dilatih untuk menguasai keterampilan teknis, manajerial, serta kewirausahaan di bidang peternakan dengan tetap memperhatikan aspek kesejahteraan hewan dan lingkungan.
                                 </p>
                             </div>
                         </div>
@@ -126,9 +131,11 @@ const AtrPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-green-700">
-                                    <li>Lab komputer ber-AC</li>
-                                    <li>Perangkat modern dan jaringan cepat</li>
-                                    <li>Perangkat lunak berlisensi</li>
+                                    <li>Kandang praktik ternak sapi, kambing, dan domba</li>
+                                    <li>Lahan hijauan pakan ternak</li>
+                                    <li>Laboratorium reproduksi dan kesehatan hewan</li>
+                                    <li>Peralatan inseminasi buatan (IB)</li>
+                                    <li>Program praktik kerja lapangan di peternakan mitra</li>
                                 </ul>
                             </div>
                         </div>

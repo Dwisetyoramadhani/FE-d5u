@@ -1,14 +1,15 @@
 import React from "react";
 import { Folder } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Jurusan = () => {
   const programKeahlian = [
-    { kode: "TP", nama: "Teknik Pengelasan" },
-    { kode: "GP", nama: "Geologi Pertambangan" },
-    { kode: "RPL", nama: "Rekayasa Perangkat Lunak" },
-    { kode: "PH", nama: "Perhotelan" },
-    { kode: "KL", nama: "Kuliner" },
-    { kode: "ATR", nama: "Agribisnis Ternak Ruminansia" },
+    { kode: "TP", nama: "Teknik Pengelasan", path: "teknik-pengelasan" },
+    { kode: "GP", nama: "Geologi Pertambangan", path: "geologi-pertambangan" },
+    { kode: "RPL", nama: "Rekayasa Perangkat Lunak", path: "rekayasa-perangkat-lunak" },
+    { kode: "PH", nama: "Perhotelan", path: "perhotelan" },
+    { kode: "KL", nama: "Kuliner", path: "kuliner" },
+    { kode: "ATR", nama: "Agribisnis Ternak Ruminansia", path: "agribisnis-ternak-ruminansia" },
   ];
 
   return (
@@ -26,14 +27,16 @@ const Jurusan = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
         {programKeahlian.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="bg-[#f5fcff] text-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            to={`/${item.path}`}
+            aria-label={`Lihat jurusan ${item.nama}`}
+            className="bg-[#f5fcff] text-gray-900 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ffd200]"
           >
             <Folder className="text-[#ffd200] w-10 h-10 mb-3 mx-auto" />
-            <h3 className="text-xl font-bold">{item.kode}</h3>
-            <p className="text-sm text-gray-700">{item.nama}</p>
-          </div>
+            <h3 className="text-xl font-bold text-center">{item.kode}</h3>
+            <p className="text-sm text-gray-700 text-center">{item.nama}</p>
+          </Link>
         ))}
       </div>
     </section>

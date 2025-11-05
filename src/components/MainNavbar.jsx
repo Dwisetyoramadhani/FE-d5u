@@ -129,7 +129,7 @@ const MainNavbar = () => {
               type="button"
               className="inline-block bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition focus:outline-none focus:ring-2 focus:ring-yellow-200"
             >
-              Contact Us
+              Hubungi Kami
             </button>
           </li>
         </ul>
@@ -146,7 +146,7 @@ const MainNavbar = () => {
           type="button"
           className="hidden md:inline-block bg-yellow-400 text-indigo-950 font-semibold px-5 py-2 rounded-full hover:bg-yellow-300 transition focus:outline-none focus:ring-2 focus:ring-yellow-200"
         >
-          Contact Us
+          Hubungi Kami
         </button>
       </div>
     </nav>

@@ -3,6 +3,7 @@ import cardImg from '../assets/images.png';
 import gallery1 from '../assets/foto-lulusan.png';
 import GpImage from '../assets/headgp.jpg'
 import gallery2 from '../assets/LogoJagoan.png';
+import logoKL from '../assets/logokl.jpg';
 
 const KlPage = () => {
     return (
@@ -61,18 +62,17 @@ const KlPage = () => {
                         WebkitTextStroke: '1px #ffbf00',
                         }}
                     >
-                        TEKNIK<br />
-                        PENGELASAN
+                        KULINER
                     </h1>
                     </div>
                 </div>
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <div className="w-10 h-10 bg-blue-500 rounded"></div>
+                    <img src={logoKL} alt="Logo SMK" className="w-10 h-10" />
                     <div>
                     <p className="text-xs text-amber-600">SMK</p>
-                    <p className="text-sm font-semibold">Rekayasa Perangkat Lunak</p>
+                    <p className="text-sm font-semibold">Kuliner</p>
                     </div>
                 </div>
                 </div>
@@ -85,7 +85,7 @@ const KlPage = () => {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-amber-700 tracking-wide">Tentang</h2>
-                        <p className="text-3xl sm:text-4xl font-extrabold text-amber-500">TP</p>
+                        <p className="text-3xl sm:text-4xl font-extrabold text-amber-500">KULINER</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,10 +97,9 @@ const KlPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-amber-700">
-                                    <li>Pemrograman Web dan Mobile</li>
-                                    <li>Basis Data dan SQL</li>
-                                    <li>Version Control (Git)</li>
-                                    <li>UI/UX dasar</li>
+                                    <li>Dasar-dasar tata boga dan teknik memasak. Pengolahan makanan nusantara, oriental, dan kontinental</li>
+                                    <li>Pastry dan bakery (pembuatan kue, roti, dan dessert) Manajemen dapur dan standar kebersihan (hygiene & sanitation)</li>
+                                    <li>Food & Beverage Service (penyajian makanan dan minuman) Manajemen usaha kuliner dan kewirausahaan</li>
                                 </ul>
                             </div>
                         </div>
@@ -113,7 +112,8 @@ const KlPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
                                 <p className="mt-3 text-sm text-amber-700">
-                                    Lulusan siap bekerja di bidang pengembangan perangkat lunak, QA, DevOps, hingga wirausaha digital.
+                                    Jurusan Kuliner SMKN 4 Bojonegoro merupakan program keahlian yang membekali siswa dengan keterampilan dalam pengolahan makanan, penyajian, serta manajemen usaha kuliner.
+                                    Program ini tidak hanya fokus pada praktik memasak, tetapi juga menanamkan kreativitas, inovasi, dan etika kerja di bidang tata boga.
                                 </p>
                             </div>
                         </div>
@@ -126,9 +126,11 @@ const KlPage = () => {
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
                                 <ul className="mt-3 text-sm list-disc pl-5 space-y-1 text-amber-700">
-                                    <li>Lab komputer ber-AC</li>
-                                    <li>Perangkat modern dan jaringan cepat</li>
-                                    <li>Perangkat lunak berlisensi</li>
+                                    <li>Laboratorium dapur (hot kitchen & cold kitchen).</li>
+                                    <li>Peralatan pastry & bakery modern.</li>
+                                    <li>Laboratorium Food & Beverage Service.</li>
+                                    <li>Bahan praktik yang variatif dan sesuai standar industri.</li>
+                                    <li>Program praktik kerja lapangan di restoran, hotel, dan usaha kuliner mitra.</li>
                                 </ul>
                             </div>
                         </div>
