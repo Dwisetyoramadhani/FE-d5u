@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
-import defaultImage from "../assets/images.png";
+import defaultImage from "../assets/images.webp";
 const News = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -38,6 +38,10 @@ const News = () => {
             <img
               src={item.thumbnail ? storageUrl(item.thumbnail) : defaultImage}
               alt={item.title}
+              width={600}
+              height={400}
+              loading="lazy"
+              decoding="async"
               className="w-full h-96 object-cover"
               onError={(e) => {
               e.target.onerror = null; // hindari infinite loop

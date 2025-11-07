@@ -1,8 +1,12 @@
 import React from 'react';
-import cardImg from '../assets/images.png';
-import gallery1 from '../assets/foto-lulusan.png';
 import rplImage from '../assets/rpl.jpg'
-import gallery2 from '../assets/LogoJagoan.png';
+import rpl1 from '../assets/RPL1.webp';
+import rpl2 from '../assets/RPL2.webp';
+import rpl3 from '../assets/RPL3.webp';
+import rpl4 from '../assets/RPL4.webp';
+import rpl5 from '../assets/RPL5.webp';
+import rpl7 from '../assets/RPL7.webp';
+
 
 const RplPage = () => {
 	return (
@@ -93,7 +97,7 @@ const RplPage = () => {
 						{/* Card 1 */}
 						<div className="bg-white rounded-xl shadow-md overflow-hidden">
 							<div className="relative h-40">
-								<img src={cardImg} alt="Kompetensi" className="w-full h-full object-cover" />
+								<img src={rpl1} alt="Kompetensi" className="w-full h-full object-cover" />
 							</div>
 							<div className="p-5">
 								<h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
@@ -109,7 +113,7 @@ const RplPage = () => {
 						{/* Card 2 */}
 						<div className="bg-white rounded-xl shadow-md overflow-hidden">
 							<div className="relative h-40">
-								<img src={cardImg} alt="Profil Jurusan" className="w-full h-full object-cover" />
+								<img src={rpl2} alt="Profil Jurusan" className="w-full h-full object-cover" />
 							</div>
 							<div className="p-5">
 								<h3 className="font-bold text-lg">Profil Jurusan</h3>
@@ -122,7 +126,7 @@ const RplPage = () => {
 						{/* Card 3 */}
 						<div className="bg-white rounded-xl shadow-md overflow-hidden">
 							<div className="relative h-40">
-								<img src={cardImg} alt="Fasilitas" className="w-full h-full object-cover" />
+								<img src={rpl3} alt="Fasilitas" className="w-full h-full object-cover" />
 							</div>
 							<div className="p-5">
 								<h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
@@ -147,22 +151,13 @@ const RplPage = () => {
 					{/* Gallery Grid */}
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
+							<img src={rpl4} alt="Kegiatan 1" className="w-full h-48 object-cover" />
 						</div>
 						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery1} alt="Kegiatan 2" className="w-full h-48 object-cover" />
+							<img src={rpl5} alt="Kegiatan 2" className="w-full h-48 object-cover" />
 						</div>
 						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery1} alt="Kegiatan 3" className="w-full h-48 object-cover" />
-						</div>
-						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery2} alt="Kegiatan 4" className="w-full h-48 object-cover" />
-						</div>
-						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery2} alt="Kegiatan 5" className="w-full h-48 object-cover" />
-						</div>
-						<div className="rounded-xl overflow-hidden shadow-sm">
-							<img src={gallery1} alt="Kegiatan 6" className="w-full h-48 object-cover" />
+							<img src={rpl7} alt="Kegiatan 3" className="w-full h-48 object-cover" />
 						</div>
 					</div>
 				</div>

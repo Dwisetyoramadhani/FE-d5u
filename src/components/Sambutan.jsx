@@ -1,5 +1,5 @@
 import React from "react";
-import kepsek from "../assets/kepsek.png";
+import kepsek from "../assets/kepsek.webp";
 
 const Sambutan = () => {
   return (
@@ -9,6 +9,10 @@ const Sambutan = () => {
           <img
             src={kepsek}
             alt="Kepala Sekolah SMKN 4 Bojonegoro"
+            width={512}
+            height={512}
+            loading="lazy"
+            decoding="async"
             className="w-56 sm:w-64 md:w-72 mx-auto"
           />
         </div>

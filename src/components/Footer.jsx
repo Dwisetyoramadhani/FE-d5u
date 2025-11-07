@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
-import JHICLogo from "../assets/LogoJagoan.png";
+import JHICLogo from "../assets/LogoJagoan.webp";
 const Footer = () => {
   return (
     <footer className="bg-[#0C0C4C] text-white py-10">

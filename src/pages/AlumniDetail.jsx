@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchAlumniById } from '../services/alumni';
 import { storageUrl } from '../utils/storage';
-import placeholder from '../assets/avatar.jpg';
+import placeholder from '../assets/avatar.webp';
 
 const AlumniDetail = () => {
   const { id } = useParams();

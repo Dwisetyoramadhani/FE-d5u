@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Search, Mail, Globe, Hash, ArrowRight } from "lucide-react";
 import { fetchAlumni } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
-import placeholderAvatar from "../assets/avatar.jpg";
+import placeholderAvatar from "../assets/avatar.webp";
 
 const AlumniPage = () => {
   const [searchTerm, setSearchTerm] = useState("");

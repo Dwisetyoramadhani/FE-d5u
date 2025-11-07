@@ -1,11 +1,11 @@
 import React from 'react';
-import cardImg from '../assets/images.png';
-import gallery1 from '../assets/foto-lulusan.png';
+import cardImg from '../assets/images.webp';
+import gallery1 from '../assets/foto-lulusan.webp';
 import GpImage from '../assets/headgp.jpg'
-import gallery2 from '../assets/LogoJagoan.png';
+import gallery2 from '../assets/LogoJagoan.webp';
 import logoTP from '../assets/logotp.JPG';
 import tp1 from '../assets/tp1.jpg';
-import tp2 from '../assets/tp2.jpg';
+import tp2 from '../assets/tp2.webp';
 
 const GpPage = () => {
     return (

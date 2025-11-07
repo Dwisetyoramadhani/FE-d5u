@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
 import debounce from "just-debounce-it";
-import defaultImage from "../assets/images.png";
+import defaultImage from "../assets/images.webp";
 
 const BeritaPage = () => {
   const [newsData, setNewsData] = useState([]);

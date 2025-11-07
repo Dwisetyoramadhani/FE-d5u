@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
 import { sendFeedback } from "../services/feedback";
 
 const Feedback = () => {
@@ -60,18 +59,28 @@ const Feedback = () => {
             <div className="flex justify-center md:justify-start space-x-2">
               {[...Array(5)].map((_, index) => {
                 const starValue = index + 1;
+                const filled = starValue <= (hover || rating);
                 return (
-                  <FaStar
+                  <button
                     key={index}
-                    size={30}
-                    className="cursor-pointer transition"
-                    color={
-                      starValue <= (hover || rating) ? "#ffc107" : "#000000"
-                    }
+                    type="button"
+                    aria-label={`Beri rating ${starValue}`}
                     onClick={() => setRating(starValue)}
                     onMouseEnter={() => setHover(starValue)}
                     onMouseLeave={() => setHover(null)}
-                  />
+                    className="cursor-pointer p-0.5 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded"
+                  >
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 24 24"
+                      fill={filled ? "#ffc107" : "#000000"}
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.168L12 18.897l-7.336 3.868 1.402-8.168L.132 9.21l8.2-1.192L12 .587z" />
+                    </svg>
+                  </button>
                 );
               })}
             </div>

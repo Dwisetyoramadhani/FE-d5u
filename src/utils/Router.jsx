@@ -1,33 +1,34 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 
-import Home from "../pages/Home";
-import AboutPage from "../pages/AboutPage";
-import VisimisiPage from "../pages/VisimisiPage";
-import JurusanPage from "../pages/JurusanPage";
-import AlumniPage from "../pages/AlumniPage";
-import BeritaPage from "../pages/BeritaPages";
-import CekKelulusan from "../pages/CekKelulusan";
-import PartnershipPage from "../pages/PartnershipPage";
-import Feedback from "../components/Feedback";
-import PrestasiPage from "../pages/BeritaPages";
-import About from "../components/About";
-import Sambutan from "../components/Sambutan";
-import VisiMisi from "../components/VisiMisi";
-import Jurusan from "../components/Jurusan";
-import Alumni from "../components/Alumni";
-import AlumniDetail from "../pages/AlumniDetail";
-import News from "../components/News";
-import NewsWatch from "../pages/NewsWatch";
+const Home = lazy(() => import("../pages/Home"));
+const AboutPage = lazy(() => import("../pages/AboutPage"));
+const VisimisiPage = lazy(() => import("../pages/VisimisiPage"));
+const JurusanPage = lazy(() => import("../pages/JurusanPage"));
+const AlumniPage = lazy(() => import("../pages/AlumniPage"));
+const BeritaPage = lazy(() => import("../pages/BeritaPages"));
+const CekKelulusan = lazy(() => import("../pages/CekKelulusan"));
+const PartnershipPage = lazy(() => import("../pages/PartnershipPage"));
+const Feedback = lazy(() => import("../components/Feedback"));
+const PrestasiPage = lazy(() => import("../pages/BeritaPages"));
+const About = lazy(() => import("../components/About"));
+const Sambutan = lazy(() => import("../components/Sambutan"));
+const VisiMisi = lazy(() => import("../components/VisiMisi"));
+const Jurusan = lazy(() => import("../components/Jurusan"));
+const Alumni = lazy(() => import("../components/Alumni"));
+import LazyMount from "../components/LazyMount";
+const AlumniDetail = lazy(() => import("../pages/AlumniDetail"));
+const News = lazy(() => import("../components/News"));
+const NewsWatch = lazy(() => import("../pages/NewsWatch"));
 import ErrorBoundary from "./RouteErrorBoundary";
 import { LARAVEL_URL } from "./ConstantVariable";
-import RplPage from "../pages/RplPage";
-import GpPage from "../pages/GpPage";
-import TpPage from "../pages/TpPage";
-import PhPage from "../pages/PhPage";
-import KlPage from "../pages/KlPage";
-import AtrPage from "../pages/AtrPage";
+const RplPage = lazy(() => import("../pages/RplPage"));
+const GpPage = lazy(() => import("../pages/GpPage"));
+const TpPage = lazy(() => import("../pages/TpPage"));
+const PhPage = lazy(() => import("../pages/PhPage"));
+const KlPage = lazy(() => import("../pages/KlPage"));
+const AtrPage = lazy(() => import("../pages/AtrPage"));
 
 const router = createBrowserRouter([
   {
@@ -37,45 +38,47 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <>
-            <Home />
-            <About />
-            <Sambutan />
-            <VisiMisi />
-            <ErrorBoundary>
-              <Jurusan />
-            </ErrorBoundary>
-            <Alumni />
-            <News />
-            <Feedback />
-          </>
+          <Suspense fallback={<div className="min-h-[40vh] flex items-center justify-center">Memuat...</div>}>
+            <>
+              <Home />
+              <LazyMount><About /></LazyMount>
+              <LazyMount><Sambutan /></LazyMount>
+              <LazyMount><VisiMisi /></LazyMount>
+              <ErrorBoundary>
+                <LazyMount><Jurusan /></LazyMount>
+              </ErrorBoundary>
+              <LazyMount><Alumni /></LazyMount>
+              <LazyMount><News /></LazyMount>
+              <LazyMount><Feedback /></LazyMount>
+            </>
+          </Suspense>
         ),
       },
-      { path: "about", element: <AboutPage /> },
-      { path: "visi-misi", element: <VisimisiPage /> },
+      { path: "about", element: <Suspense fallback={<div>Memuat...</div>}><AboutPage /></Suspense> },
+      { path: "visi-misi", element: <Suspense fallback={<div>Memuat...</div>}><VisimisiPage /></Suspense> },
       {
         path: "jurusan",
         element: (
           <ErrorBoundary>
-            <JurusanPage />
+            <Suspense fallback={<div>Memuat...</div>}><JurusanPage /></Suspense>
           </ErrorBoundary>
         ),
       },
-      { path: "alumni", element: <AlumniPage /> },
+      { path: "alumni", element: <Suspense fallback={<div>Memuat...</div>}><AlumniPage /></Suspense> },
       
-      { path: "news", element: <BeritaPage /> },
-      { path: "cekkelulusan", element: <CekKelulusan /> },
-      { path: "news/:slug", element: <NewsWatch /> },
-      {path: "alumni/:id", element: <AlumniDetail />},
-      { path: "partnership", element: <PartnershipPage /> },
-      { path: "feedback", element: <Feedback /> },
-      { path: "prestasi", element: <PrestasiPage /> },
-      {path:"rekayasa-perangkat-lunak" , element:<RplPage/>},
-      {path:"geologi-pertambangan" , element:<GpPage/>},
-      {path:"teknik-pengelasan" , element:<TpPage/>},
-      {path:"perhotelan" , element:<PhPage/>},
-      {path:"kuliner" , element:<KlPage/>},
-      {path:"agribisnis-ternak-ruminansia" , element:<AtrPage/>}
+  { path: "news", element: <Suspense fallback={<div>Memuat...</div>}><BeritaPage /></Suspense> },
+  { path: "cekkelulusan", element: <Suspense fallback={<div>Memuat...</div>}><CekKelulusan /></Suspense> },
+  { path: "news/:slug", element: <Suspense fallback={<div>Memuat...</div>}><NewsWatch /></Suspense> },
+  { path: "alumni/:id", element: <Suspense fallback={<div>Memuat...</div>}><AlumniDetail /></Suspense> },
+  { path: "partnership", element: <Suspense fallback={<div>Memuat...</div>}><PartnershipPage /></Suspense> },
+  { path: "feedback", element: <Suspense fallback={<div>Memuat...</div>}><Feedback /></Suspense> },
+  { path: "prestasi", element: <Suspense fallback={<div>Memuat...</div>}><PrestasiPage /></Suspense> },
+  { path:"rekayasa-perangkat-lunak" , element:<Suspense fallback={<div>Memuat...</div>}><RplPage/></Suspense> },
+  { path:"geologi-pertambangan" , element:<Suspense fallback={<div>Memuat...</div>}><GpPage/></Suspense> },
+  { path:"teknik-pengelasan" , element:<Suspense fallback={<div>Memuat...</div>}><TpPage/></Suspense> },
+  { path:"perhotelan" , element:<Suspense fallback={<div>Memuat...</div>}><PhPage/></Suspense> },
+  { path:"kuliner" , element:<Suspense fallback={<div>Memuat...</div>}><KlPage/></Suspense> },
+  { path:"agribisnis-ternak-ruminansia" , element:<Suspense fallback={<div>Memuat...</div>}><AtrPage/></Suspense> }
     ],
   },
   {

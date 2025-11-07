@@ -1,8 +1,8 @@
 import React from 'react';
-import cardImg from '../assets/images.png';
-import gallery1 from '../assets/foto-lulusan.png';
+import cardImg from '../assets/images.webp';
+import gallery1 from '../assets/foto-lulusan.webp';
 import GpImage from '../assets/headgp.jpg'
-import gallery2 from '../assets/LogoJagoan.png';
+import gallery2 from '../assets/LogoJagoan.webp';
 import logoPH from '../assets/logoph.JPG';
 const PhPage = () => {
     return (

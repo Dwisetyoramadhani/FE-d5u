@@ -1,14 +1,14 @@
 import React from 'react';
-import cardImg from '../assets/images.png';
-import gallery1 from '../assets/foto-lulusan.png';
+import cardImg from '../assets/images.webp';
+import gallery1 from '../assets/foto-lulusan.webp';
 import GpImage from '../assets/headgp.jpg'
-import gallery2 from '../assets/LogoJagoan.png';
-import logoGP from '../assets/logogp.jpg';
-import gp1 from '../assets/gp1.jpg';
+import gallery2 from '../assets/LogoJagoan.webp';
+import logoGP from '../assets/logogp.webp';
+import gp1 from '../assets/gp1.webp';
 import gp2 from '../assets/gp2.jpg';
-import gp3 from '../assets/gp3.jpg';
-import gp4 from '../assets/gp4.jpg';
-import gp5 from '../assets/gp5.jpg';
+import gp3 from '../assets/gp3.webp';
+import gp4 from '../assets/gp4.webp';
+import gp5 from '../assets/gp5.webp';
 import gp6 from '../assets/gp6.jpg';
 const GpPage = () => {
     return (

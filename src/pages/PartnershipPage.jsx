@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { fetchCompanies } from "../services/company";
 import { storageUrl } from "../utils/storage";
+import  mascotCompany from '../assets/mascot-company.webp';
 
 const PartnershipPage = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const PartnershipPage = () => {
 
         {/* Ilustrasi */}
         <img
-          src="/assets/partner-illustration.png"
+          src={mascotCompany}
           alt="Partnership Illustration"
           className="w-28 h-28 object-contain"
         />

@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/bg-smk.png";
+import bg from "../assets/bg-smk.webp";
 
 const About = () => {
   return (
@@ -55,6 +55,10 @@ const About = () => {
           <img
             src={bg}
             alt="SMKN 4 Bojonegoro"
+            width={800}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="rounded-xl shadow-lg w-full max-w-md object-cover"
           />
         </div>

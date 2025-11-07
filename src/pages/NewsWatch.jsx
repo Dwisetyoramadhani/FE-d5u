@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchNewsBySlug } from "../services/news";
 import { storageUrl } from "../utils/storage";
-import defaultImage from "../assets/images.png";
+import defaultImage from "../assets/images.webp";
 const NewsWatch = () => {
   const { slug } = useParams();
   const navigate = useNavigate();

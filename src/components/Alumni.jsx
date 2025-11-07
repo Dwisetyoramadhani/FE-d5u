@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLatestForLanding } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
-import placeholder from "../assets/avatar.jpg";
+import placeholder from "../assets/avatar.webp";
 
 const Alumni = () => {
   const [alumni, setAlumni] = useState([]);
@@ -49,6 +49,10 @@ const Alumni = () => {
             <img
               src={item.photo ? storageUrl(item.photo) : placeholder}
               alt={item.name}
+              width={480}
+              height={240}
+              loading="lazy"
+              decoding="async"
               className="w-full h-60 object-cover rounded-t-xl"
             />
             <div className="p-4">

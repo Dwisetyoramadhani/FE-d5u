@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 
 const MainNavbar = () => {
   const [isProgramOpen, setIsProgramOpen] = useState(false);
@@ -38,7 +37,11 @@ const MainNavbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden text-white focus:outline-none"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          )}
         </button>
 
         <ul
@@ -75,12 +78,21 @@ const MainNavbar = () => {
               className="flex items-center space-x-1 hover:text-yellow-400 focus:outline-none"
             >
               <span>Program</span>
-              <ChevronDown
-                size={16}
-                className={`transition-transform duration-300 ${
-                  isProgramOpen ? "rotate-180" : ""
-                }`}
-              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform duration-300 ${isProgramOpen ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
 
             {isProgramOpen && (

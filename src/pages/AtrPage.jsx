@@ -1,9 +1,11 @@
 import React from 'react';
-import cardImg from '../assets/images.png';
-import gallery1 from '../assets/foto-lulusan.png';
-import GpImage from '../assets/headgp.jpg'
-import gallery2 from '../assets/LogoJagoan.png';
+import headAtr from '../assets/headatr.webp'
+import atr1 from '../assets/atr1.webp'
+import atr2 from '../assets/atr2.webp'
+import atr3 from '../assets/atr3.webp'
 import logoATR from '../assets/logoatr.jpeg';
+import { head } from 'framer-motion/client';
+
 const AtrPage = () => {
     return (
         <div className="bg-white text-green-800">
@@ -14,7 +16,7 @@ const AtrPage = () => {
                 {/* Gambar Hero */}
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8 relative">
                     <img
-                    src={GpImage}
+                    src={headAtr}
                     alt="Group Photo"
                     className="w-full h-auto object-cover"
                     />
@@ -69,7 +71,7 @@ const AtrPage = () => {
 
                 {/* Info bawah */}
                 <div className="mt-8 flex items-center gap-2">
-                    <img src={logoATR} alt="Logo SMK" className="w-10 h-10" />
+                    <img src={atr1} alt="Logo SMK" className="w-10 h-10" />
                     <div>
                     <p className="text-xs text-green-600">SMK</p>
                     <p className="text-sm font-semibold">Agribisnis Ternak Ruminansia</p>
@@ -92,7 +94,7 @@ const AtrPage = () => {
                         {/* Card 1 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Kompetensi" className="w-full h-full object-cover" />
+                                <img src={atr2} alt="Kompetensi" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Kompetensi yang Dipelajari</h3>
@@ -111,7 +113,7 @@ const AtrPage = () => {
                         {/* Card 2 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Profil Jurusan" className="w-full h-full object-cover" />
+                                <img src={atr3} alt="Profil Jurusan" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Profil Jurusan</h3>
@@ -126,7 +128,7 @@ const AtrPage = () => {
                         {/* Card 3 */}
                         <div className="bg-white rounded-xl shadow-md overflow-hidden">
                             <div className="relative h-40">
-                                <img src={cardImg} alt="Fasilitas" className="w-full h-full object-cover" />
+                                <img src={atr1} alt="Fasilitas" className="w-full h-full object-cover" />
                             </div>
                             <div className="p-5">
                                 <h3 className="font-bold text-lg">Fasilitas Jurusan</h3>
@@ -153,22 +155,13 @@ const AtrPage = () => {
                     {/* Gallery Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
+                            <img src={atr1} alt="Kegiatan 1" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 2" className="w-full h-48 object-cover" />
+                            <img src={atr2} alt="Kegiatan 2" className="w-full h-48 object-cover" />
                         </div>
                         <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 3" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 4" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery2} alt="Kegiatan 5" className="w-full h-48 object-cover" />
-                        </div>
-                        <div className="rounded-xl overflow-hidden shadow-sm">
-                            <img src={gallery1} alt="Kegiatan 6" className="w-full h-48 object-cover" />
+                            <img src={atr3} alt="Kegiatan 3" className="w-full h-48 object-cover" />
                         </div>
                     </div>
                 </div>
