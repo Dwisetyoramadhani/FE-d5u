@@ -4,7 +4,8 @@ export async function fetchAlumni(params = {}) {
   const res = await api.get('/alumni', { params });
   const payload = res.data;
   const items = payload?.data?.data ?? [];
-  return items;
+  const paginate = payload?.data?.paginate ?? payload?.data?.pagination ?? null;
+  return { items, paginate };
 }
 
 export async function fetchAlumniById(id) {
