@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { fetchLatestForLanding } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
 import placeholder from "../assets/avatar.webp";
+import rafieImage from "../assets/rafie.webp";
+import alulImage from "../assets/alul.webp"; // Pastikan file ini ada! Jika tidak, ganti dengan path yang benar.
 
 const Alumni = () => {
   const [alumni, setAlumni] = useState([]);
@@ -16,6 +18,13 @@ const Alumni = () => {
       .catch((err) => setError(err.message || "Failed to load alumni"))
       .finally(() => setLoading(false));
   }, []);
+
+  // Helper untuk menentukan gambar alumni
+  const getAlumniImage = (item) => {
+    if (item.id === 4) return rafieImage;
+    if (item.id === 3) return alulImage;
+    return item.photo ? storageUrl(item.photo) : placeholder;
+  };
 
   return (
     <section className="bg-blue-50 border-2 border-blue-500 p-6 sm:p-10 rounded-lg">
@@ -40,14 +49,14 @@ const Alumni = () => {
       {error && <p className="text-center text-red-500">{error}</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {alumni.map((item, index) => (
+        {alumni.map((item) => (
           <Link
             to={`/alumni/${item.id}`}
-            key={item.id ?? index}
+            key={item.id}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition block"
           >
             <img
-              src={item.photo ? storageUrl(item.photo) : placeholder}
+              src={getAlumniImage(item)}
               alt={item.name}
               width={480}
               height={240}

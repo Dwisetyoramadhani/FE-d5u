@@ -7,6 +7,8 @@ import { fetchAlumni } from "../services/alumni";
 import { storageUrl } from "../utils/storage";
 import placeholderAvatar from "../assets/avatar.webp";
 import mascotAlumni from '../assets/mascot-company.webp';
+import rafieImage from '../assets/rafie.webp'
+import alulImage from  '../assets/alul.webp'
 
 const AlumniPage = () => {
   const navigate = useNavigate();
@@ -104,13 +106,17 @@ const AlumniPage = () => {
             className="bg-white shadow-md rounded-xl p-4 flex flex-col justify-between hover:shadow-lg transition"
           >
             {/* Foto Alumni */}
-            <div className="w-full h-24 flex items-center justify-center border-b border-gray-200 mb-3">
+            <div className="w-full h-full flex items-center justify-center border-b border-gray-200 mb-3">
               <img
                 src={
-                  alumni.photo ||
-                  alumni.avatar ||
-                  alumni.img ||
-                  alumni.image
+                  alumni.id === 4
+                    ? rafieImage
+                    : alumni.id === 3
+                    ? alulImage
+                    : alumni.photo ||
+                      alumni.avatar ||
+                      alumni.img ||
+                      alumni.image
                     ? storageUrl(
                         alumni.photo ??
                           alumni.avatar ??

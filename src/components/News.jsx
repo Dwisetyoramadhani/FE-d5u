@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { fetchNews } from "../services/news";
 import { storageUrl } from "../utils/storage";
 import defaultImage from "../assets/images.webp";
+import hut from '../assets/hut.webp';
+import silat from '../assets/silat.webp';
+import assesemen from '../assets/assesemen.webp';
+
 const News = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,6 +19,14 @@ const News = () => {
       .catch((err) => setError(err.message || "Failed to load news"))
       .finally(() => setLoading(false));
   }, []);
+
+  // Helper: tentukan gambar berdasarkan id
+  const getNewsThumbnail = (item) => {
+    if (item.id === 8) return hut;
+    if (item.id === 7) return assesemen;
+    if (item.id === 6) return silat;
+    return item.thumbnail ? storageUrl(item.thumbnail) : defaultImage;
+  };
 
   if (loading) return <div className="p-8 text-center">Loading...</div>;
   if (error) return <div className="p-8 text-red-500 text-center">{error}</div>;
@@ -29,14 +41,14 @@ const News = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {items.slice(0, 3).map((item, index) => (
+        {items.slice(0, 3).map((item) => (
           <Link
-            key={index}
+            key={item.id} // gunakan id sebagai key, bukan index
             to={`/news/${item.slug ?? item.id}`}
             className="bg-white text-black rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition block"
           >
             <img
-              src={item.thumbnail ? storageUrl(item.thumbnail) : defaultImage}
+              src={getNewsThumbnail(item)}
               alt={item.title}
               width={600}
               height={400}
@@ -44,8 +56,8 @@ const News = () => {
               decoding="async"
               className="w-full h-96 object-cover"
               onError={(e) => {
-              e.target.onerror = null; // hindari infinite loop
-              e.target.src = defaultImage;
+                e.target.onerror = null;
+                e.target.src = defaultImage;
               }}
             />
             <div className="p-5">
